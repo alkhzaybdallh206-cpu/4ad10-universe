@@ -1,440 +1,765 @@
 <!doctype html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>4_AD10</title>
-<meta name="description" content="4_AD10 — Anime edits. Cinematic worlds.">
+<title>4_AD10 UNIVERSE</title>
+<meta name="description" content="4_AD10 UNIVERSE — مساحتي الشخصية: حساباتي، مقولات الأنمي، ومجتمع المتابعين.">
 <meta name="theme-color" content="#050505">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050505;--g1:#0d0d0e;--g3:#262628;--tx:#ece8e4;--mut:#8b8683;--r:#9b141b;--r2:#c1272d;--out:cubic-bezier(.16,1,.3,1);--io:cubic-bezier(.76,0,.24,1);--cz:Cinzel,'Times New Roman',serif}
+:root{--bg:#050505;--card:#0e0e10;--line:#262628;--tx:#ece8e4;--mut:#9a9490;--red:#9b141b;--red2:#d12a31;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{background:var(--bg)}
-body{color:var(--tx);font:400 1rem/1.7 Tajawal,system-ui,sans-serif;overflow-x:hidden}
-body.lock{overflow:hidden}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-:focus-visible{outline:1px solid var(--r2);outline-offset:3px}
-.lb2{font:700 .7rem Tajawal;letter-spacing:.3em;text-transform:uppercase}
-#cv,.grain,.vig,#glow{position:fixed;pointer-events:none}
-#cv{inset:0;width:100%;height:100%;z-index:1}
-.grain{inset:0;z-index:800;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:gr .6s steps(3) infinite}
-@keyframes gr{33%{transform:translate(-3%,2%)}66%{transform:translate(2%,-3%)}}
-.vig{inset:0;z-index:790;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.7))}
-#glow{width:520px;height:520px;left:-260px;top:-260px;z-index:1;background:radial-gradient(circle,rgba(155,20,27,.12),transparent 65%);display:none}
-@media(hover:hover){#glow{display:block}}
-/* loader */
-#loader{position:fixed;inset:0;z-index:1000;background:#030303;display:grid;place-items:center;transition:opacity 1s var(--io),transform 1.2s var(--io)}
-#loader.out{opacity:0;transform:scale(1.2);pointer-events:none}
-.ld{text-align:center;width:min(86vw,420px);direction:ltr}
-.ld h1{font:800 clamp(2.4rem,10vw,3.6rem) var(--cz);letter-spacing:.2em;padding-left:.2em;animation:ldl 2s var(--out) both}
-@keyframes ldl{from{opacity:0;letter-spacing:.7em;filter:blur(8px)}}
-.trk{height:1px;background:var(--g3);margin:26px 0 12px;overflow:hidden}
-.trk i{display:block;height:100%;background:var(--r2);transform:scaleX(0);transform-origin:left}
-.pc{font:500 .8rem Tajawal;letter-spacing:.3em;color:var(--mut)}
-.gate{margin-top:32px;display:grid;gap:14px;justify-items:center;animation:fi .9s var(--out) both}
-.gate[hidden]{display:none}
-@keyframes fi{from{opacity:0;transform:translateY(14px)}}
-.quiet{color:var(--mut);border-bottom:1px solid var(--g3);padding-bottom:2px;transition:.3s}
-.quiet:hover{color:var(--tx);border-color:var(--r)}
-.royal{font:600 clamp(1rem,3.6vw,1.45rem) var(--cz);letter-spacing:.26em;background:linear-gradient(90deg,#8d8782,#f3efe9 40%,#b3262c 60%,#8d8782);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 7s linear infinite;direction:ltr}
-@keyframes sh{to{background-position:-220% 0}}
-.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:14px 28px;border:1px solid var(--r);font:700 .78rem Tajawal;letter-spacing:.24em;overflow:hidden;isolation:isolate;transition:.4s}
-.btn::before{content:"";position:absolute;inset:0;background:var(--r);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--io);z-index:-1}
-.btn:hover::before{transform:scaleX(1);transform-origin:left}
-.btn.solid{background:var(--r)}.btn.solid::before{background:var(--g1);transform-origin:left}.btn.solid:hover::before{transform:scaleX(1)}
-.btn i{font-style:normal;transition:transform .4s var(--out)}.btn:hover i{transform:translateX(6px)}
-/* nav */
-.nav{position:fixed;inset:0 0 auto;z-index:600;display:flex;align-items:center;justify-content:space-between;padding:18px max(22px,4vw);border-bottom:1px solid transparent;transition:.4s;direction:ltr}
-.nav.sc{background:rgba(5,5,5,.8);backdrop-filter:blur(14px);padding-block:12px;border-color:var(--g3)}
-.logo{font:800 1.1rem var(--cz);letter-spacing:.18em}.logo i{color:var(--r2);font-style:normal;margin-right:8px}
-.links{display:flex}.links a{position:relative;padding:10px 13px;color:var(--mut);transition:color .3s}
-.links a b{color:var(--r2);margin-right:6px}
-.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:3px;height:1px;background:var(--r2);transform:scaleX(0);transition:transform .5s var(--out)}
-.links a:hover,.links a.on{color:var(--tx)}.links a:hover::after,.links a.on::after{transform:scaleX(1)}
-.snd{display:flex;align-items:center;gap:10px}
-.sbtn{width:38px;height:38px;border:1px solid var(--g3);display:grid;place-items:center;transition:.3s}.sbtn:hover{border-color:var(--r)}
-.sx{display:none}.off .sx{display:block}.off .sw{display:none}
-#sv{-webkit-appearance:none;appearance:none;width:80px;height:2px;background:var(--g3);outline:0}
-#sv::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--r2)}
-#sv::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--r2);border:0}
-.tabbar{display:none;position:fixed;inset:auto 0 0;z-index:600;grid-template-columns:repeat(6,1fr);background:rgba(5,5,5,.94);backdrop-filter:blur(14px);border-top:1px solid var(--g3);padding-bottom:env(safe-area-inset-bottom);direction:ltr}
-.tabbar a{position:relative;display:flex;flex-direction:column;align-items:center;padding:10px 0 9px;font:700 .55rem Tajawal;letter-spacing:.08em;color:var(--mut)}
-.tabbar a b{font:600 .8rem var(--cz);color:var(--g3)}
-.tabbar a::before{content:"";position:absolute;top:-1px;left:25%;right:25%;height:2px;background:var(--r2);transform:scaleX(0);transition:transform .4s var(--out)}
-.tabbar a.on{color:var(--tx)}.tabbar a.on b{color:var(--r2)}.tabbar a.on::before{transform:scaleX(1)}
-/* pages */
-#stage{position:relative;z-index:2}
-.page{display:none;min-height:100svh;padding:110px 0 120px}.page.active{display:block}
-#home{padding:0 0 100px}
-.wrap{width:min(1180px,calc(100% - 44px));margin-inline:auto}
-.eye{color:var(--r2);margin-bottom:12px;direction:ltr}
-.st{font:800 clamp(2.4rem,10vw,5.6rem)/1.05 var(--cz);letter-spacing:.05em;direction:ltr;perspective:600px}
-.rule{display:block;height:1px;width:140px;margin:22px 0;background:linear-gradient(90deg,var(--r2),transparent)}
-.sub{color:var(--mut);max-width:560px;margin-bottom:46px}
-.sh{direction:ltr}.sh .sub{direction:rtl;text-align:right;margin-left:auto}
-[data-r]{opacity:0;transition:opacity 1s var(--out),transform 1.1s var(--out),clip-path 1.2s var(--out);transition-delay:var(--d,0s)}
-[data-r=up]{transform:translateY(38px)}
-[data-r=line]{transform:scaleX(0);transform-origin:left}
-[data-r=img]{clip-path:inset(100% 0 0 0);transform:scale(.94)}
-[data-r=split]{opacity:1}
-[data-r=split] span{display:inline-block;opacity:0;transform:translateY(70%) rotateX(-80deg);transition:opacity .8s var(--out),transform 1s var(--out);transition-delay:calc(var(--i)*55ms)}
-[data-r].in{opacity:1;transform:none;clip-path:inset(-20px)}
-[data-r=split].in span{opacity:1;transform:none}
-/* home */
-.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:20px;padding:96px max(24px,5vw) 60px;overflow:hidden;direction:ltr}
-.hbg{position:absolute;inset:0;pointer-events:none}.hbg>div{position:absolute;inset:0}
-.haze{position:absolute;inset:-10%;background:radial-gradient(60% 55% at 72% 45%,rgba(155,20,27,.24),transparent 70%),radial-gradient(40% 40% at 12% 88%,rgba(155,20,27,.12),transparent 70%)}
-.giant{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font:800 clamp(9rem,30vw,28rem)/1 var(--cz);white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(155,20,27,.17)}
-.hl{position:absolute;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(155,20,27,.55),transparent);transform:scaleX(0);animation:ln 2.2s var(--io) .4s forwards}
-.hl.b{bottom:16%;animation-delay:.8s}.hl.a{top:20%}
-@keyframes ln{to{transform:scaleX(1)}}
-.hcopy{position:relative;z-index:3}
-.ht{font:800 clamp(3.6rem,13vw,9.4rem)/.95 var(--cz);letter-spacing:.03em;margin:6px 0 20px;perspective:600px}
-.ht span{background:linear-gradient(180deg,#fff,#8f8a85);-webkit-background-clip:text;background-clip:text;color:transparent}
-.wel{margin:22px 0 32px;font-size:clamp(1rem,2.6vw,1.25rem);color:#b9b3ae;font-weight:300;letter-spacing:.05em}
-.cta{display:flex;flex-wrap:wrap;gap:14px}
-.hart{position:relative;height:min(76svh,740px);display:grid;place-items:center;z-index:2}
-.ring{position:absolute;left:50%;top:50%;translate:-50% -50%;width:min(38vw,520px);min-width:270px;aspect-ratio:1;border:1px solid rgba(155,20,27,.35);border-radius:50%;animation:rot 40s linear infinite}
-.ring::after{content:"";position:absolute;inset:7%;border:1px dashed rgba(155,20,27,.3);border-radius:50%;animation:rot 28s linear infinite reverse}
-@keyframes rot{to{transform:rotate(360deg)}}
-.emb{position:relative;width:100%;height:100%;display:grid;place-items:center}
-.emb svg{width:min(56vw,330px);overflow:visible;filter:drop-shadow(0 0 34px rgba(155,20,27,.4));animation:fl 7s ease-in-out infinite}
-@keyframes fl{50%{transform:translateY(-14px)}}
-.scr{position:absolute;left:50%;bottom:22px;translate:-50% 0;z-index:3}
-.scr i{display:block;width:1px;height:38px;margin:auto;background:linear-gradient(var(--r2),transparent);transform-origin:top;animation:sc 2s var(--io) infinite}
-@keyframes sc{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-.mq{overflow:hidden;border-block:1px solid var(--g3);padding:16px 0;direction:ltr}
-.mq div{display:flex;width:max-content;animation:mq 30s linear infinite}
-.mq span{font:600 .9rem var(--cz);letter-spacing:.4em;color:var(--mut);white-space:nowrap;padding-right:2em}
-@keyframes mq{to{transform:translateX(-50%)}}
-.chs{margin-top:90px;direction:ltr}
-.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:34px}
-.ch{position:relative;padding:24px 20px;border:1px solid var(--g3);background:linear-gradient(180deg,var(--g1),#070707);overflow:hidden;transition:border-color .4s,transform .5s var(--out)}
-.ch b{color:var(--r2);font:600 .9rem var(--cz)}.ch h3{font:600 1rem var(--cz);letter-spacing:.14em;margin:16px 0 2px}.ch p{color:var(--mut);direction:rtl;text-align:left}
-.ch i{position:absolute;right:18px;bottom:16px;font-style:normal;color:var(--r2);transition:transform .4s var(--out)}
-.ch:hover{border-color:var(--r);transform:translateY(-6px)}.ch:hover i{transform:translateX(6px)}
-/* about */
-.ag{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,6vw,80px);align-items:center}
-.pt{position:relative;aspect-ratio:4/5;background:radial-gradient(70% 60% at 50% 45%,rgba(155,20,27,.24),transparent 70%),var(--g1);border:1px solid var(--g3)}
-.pt::before,.pt::after{content:"";position:absolute;width:34px;height:34px;border:1px solid var(--r2)}
-.pt::before{top:-9px;left:-9px;border-right:0;border-bottom:0}.pt::after{bottom:-9px;right:-9px;border-left:0;border-top:0}
-.pt .emb svg{width:62%}
-.pt figcaption{position:absolute;inset:auto 0 0;padding:30px 0 14px;background:linear-gradient(transparent,#050505);text-align:center;font:600 .85rem var(--cz);letter-spacing:.4em}
-.ac .royal{margin-bottom:14px}
-.hello{font-size:clamp(1.5rem,5vw,2.3rem);font-weight:700;line-height:1.4;margin-bottom:16px}.hello em{font-style:normal;color:var(--r2)}
-.ac p{color:#b9b3ae;margin-bottom:14px}
-.sk{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 28px;direction:ltr}
-.sk li{border:1px solid var(--g3);padding:13px;font:700 .68rem Tajawal;letter-spacing:.16em;transition:.3s}.sk li:hover{border-color:var(--r)}
-.sk b{display:block;color:var(--r2);font:600 .9rem var(--cz)}
-/* works */
-.wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.work{position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--g3);background:var(--g1);cursor:pointer;transition:border-color .4s,transform .3s,opacity 1s var(--out)}
-.work:hover{border-color:var(--r)}
-.wt{position:absolute;inset:0;background:radial-gradient(80% 90% at 70% 30%,rgba(155,20,27,.38),transparent 70%),linear-gradient(135deg,#141416,#070707);background-size:cover;background-position:center;transition:transform 1.2s var(--out),filter .6s}
-.wt b{position:absolute;right:16px;top:8px;font:800 4.4rem/1 var(--cz);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.12)}
-.work::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(3,3,3,.95))}
-.work:hover .wt{transform:scale(1.08);filter:brightness(.7)}
-.tag{position:absolute;left:14px;top:14px;z-index:2;border:1px solid var(--r);padding:4px 9px;background:rgba(5,5,5,.6);font-size:.6rem}
-.pl{position:absolute;z-index:2;left:50%;top:46%;width:60px;height:60px;margin:-30px;border:1px solid var(--r2);border-radius:50%;display:grid;place-items:center;opacity:0;transform:scale(.6);transition:.5s var(--out)}
-.pl svg{width:20px;fill:#fff;margin-left:3px}.work:hover .pl{opacity:1;transform:none}
-.wi{position:absolute;z-index:2;left:18px;right:18px;bottom:14px;font-weight:700}
-.wl{position:absolute;z-index:3;left:0;bottom:0;height:2px;width:100%;background:var(--r2);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--io)}.work:hover .wl{transform:scaleX(1)}
-/* gallery */
-.gg{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:130px;grid-auto-flow:dense;gap:12px}
-.gi{position:relative;overflow:hidden;border:1px solid rgba(155,20,27,.35);cursor:zoom-in;grid-column:span 2;grid-row:span 2;transition:border-color .4s,opacity 1s var(--out),clip-path 1.2s var(--out),transform 1.1s var(--out)}
-.gi.s1,.gi.s5{grid-row:span 3}.gi.s2,.gi.s6{grid-column:span 3}.gi.s4{grid-column:span 3;grid-row:span 3}
-.gi b{position:absolute;right:14px;top:8px;font:800 3.2rem/1 var(--cz);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.16);transition:.6s var(--out)}
-.gi span{position:absolute;left:14px;bottom:12px;color:var(--mut);font-size:.6rem}
-.gi::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--r2);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--io)}
-.gi:hover{border-color:var(--r2)}.gi:hover::after{transform:scaleX(1)}.gi:hover b{-webkit-text-stroke-color:rgba(193,39,45,.8);transform:scale(1.1)}
-/* community */
-.cm{display:grid;grid-template-columns:1fr 1.3fr;gap:20px}
-.card{position:relative;border:1px solid var(--g3);background:linear-gradient(180deg,var(--g1),#070707);padding:24px}
-.card::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--r2),transparent);transform:scaleX(.3);transform-origin:right;transition:transform .7s var(--io)}.card:hover::before{transform:scaleX(1)}
-.ct{display:flex;align-items:center;gap:12px;margin-bottom:18px}.ct b{color:var(--r2);font:600 .9rem var(--cz)}.ct h3{font-size:1.15rem}
-.cnt{margin-right:auto;border:1px solid var(--r);padding:2px 10px;font-size:.8rem}
-form label{display:block;font-size:.88rem;color:var(--mut);margin-bottom:14px}
-form input,form textarea{display:block;width:100%;margin-top:6px;background:#080808;border:1px solid var(--g3);color:var(--tx);font:inherit;padding:12px 14px;resize:none;transition:border-color .3s}
-form input:focus,form textarea:focus{outline:0;border-color:var(--r2)}
-.note{color:var(--mut);font-size:.78rem;margin-top:14px}
-.sl{list-style:none;max-height:420px;overflow:auto;display:grid;gap:8px}
-.sl li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--g3);background:#080808}
-.sl small{display:block;color:var(--mut)}.sl .em{color:var(--mut);justify-content:center;border-style:dashed}
-.up{border:1px solid var(--g3);padding:6px 12px;transition:.3s;white-space:nowrap;direction:ltr}.up:hover,.up.on{border-color:var(--r2);color:var(--r2)}
-#polls{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.poll h4{margin-bottom:14px;line-height:1.5}
-.opt{position:relative;display:flex;justify-content:space-between;width:100%;margin-bottom:8px;padding:12px 14px;border:1px solid var(--g3);overflow:hidden;transition:border-color .3s}
-.opt:hover,.opt.on{border-color:var(--r2)}
-.opt i{position:absolute;inset:0 auto 0 0;background:rgba(155,20,27,.3);transition:width 1s var(--out)}
-.opt span,.opt em{position:relative;font-style:normal}.opt em{color:var(--r2)}
-/* socials */
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.soc{position:relative;display:block;padding:32px 26px;border:1px solid var(--g3);background:linear-gradient(180deg,var(--g1),#060606);overflow:hidden;transition:border-color .5s,transform .6s var(--out)}
-.soc::before{content:"";position:absolute;inset:auto 0 0;height:0;background:linear-gradient(transparent,rgba(155,20,27,.2));transition:height .7s var(--out)}
-.soc:hover{border-color:var(--r);transform:translateY(-8px)}.soc:hover::before{height:100%}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font:400 1.05rem/1.9 Tajawal,"Segoe UI",Tahoma,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--red2);outline-offset:3px}
+.en{direction:ltr;unicode-bidi:isolate}
+.wrap{width:min(1000px,calc(100% - 40px));margin-inline:auto}
+
+/* التنقل */
+.nav{position:fixed;inset:0 0 auto;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px max(20px,4vw);border-bottom:1px solid transparent;transition:background .4s,padding .4s,border-color .4s}
+.nav.sc{background:rgba(5,5,5,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-block:9px;border-color:var(--line)}
+.logo{font:800 1.2rem Tajawal;letter-spacing:.1em;direction:ltr}.logo b{color:var(--red2)}
+.links{display:flex;gap:2px}
+.links a{position:relative;padding:6px 13px;color:var(--mut);font-weight:700;font-size:.95rem;transition:color .3s}
+.links a::after{content:"";position:absolute;inset:auto 13px 0;height:2px;background:var(--red2);transform:scaleX(0);transition:transform .45s var(--ease)}
+.links a:hover,.links a.on{color:var(--tx)}
+.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+.tabbar{display:none;position:fixed;inset:auto 0 0;z-index:50;grid-template-columns:repeat(6,1fr);background:rgba(5,5,5,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+.tabbar a{position:relative;text-align:center;padding:12px 0;font:700 .7rem Tajawal;color:var(--mut)}
+.tabbar a.on{color:var(--tx)}
+.tabbar a.on::before{content:"";position:absolute;top:-1px;inset-inline:22%;height:2px;background:var(--red2)}
+
+/* الصفحات والانتقال */
+.page{display:none;min-height:100svh;padding:110px 0 100px}
+.page.active{display:block;animation:pin .55s var(--ease)}
+.page.out{display:block;opacity:0;transform:translateY(-10px);transition:opacity .2s,transform .2s}
+@keyframes pin{from{opacity:0;transform:translateY(18px)}}
+#home{padding:0}
+.eye{color:var(--red2);font-weight:700;letter-spacing:.1em}
+h2.st{font:800 clamp(2rem,7vw,3.2rem)/1.3 Tajawal;margin-bottom:6px}
+.rule{display:block;width:90px;height:2px;margin:12px 0 22px;background:linear-gradient(270deg,var(--red2),transparent)}
+.sub{color:var(--mut);max-width:600px;margin-bottom:30px}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* الرئيسية */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:90px 20px 60px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20%;background:radial-gradient(45% 40% at 50% 45%,rgba(155,20,27,.3),transparent 70%);animation:pulse 7s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.55;transform:scale(1.08)}}
+.hero>div{position:relative}
+.hi{display:block;color:var(--red2);font-weight:700;letter-spacing:.12em;margin-bottom:6px}
+.name{font:800 clamp(3.2rem,15vw,8rem)/1.05 Tajawal;direction:ltr;letter-spacing:.04em;background:linear-gradient(180deg,#fff,#8f8a85);-webkit-background-clip:text;background-clip:text;color:transparent}
+.uni{font:700 clamp(.9rem,3vw,1.2rem) Tajawal;letter-spacing:.5em;color:var(--red2);direction:ltr;margin-top:2px}
+.tag{margin:16px auto 28px;max-width:480px;color:#b9b3ae;font-weight:300;font-size:clamp(1.05rem,3vw,1.25rem)}
+.btn{display:inline-block;padding:12px 28px;border:1px solid var(--red);background:var(--red);font:700 1rem Tajawal;transition:transform .4s var(--ease),background .3s,box-shadow .4s}
+.btn:hover{background:var(--red2);transform:translateY(-3px);box-shadow:0 10px 28px rgba(155,20,27,.4)}
+.btn.ghost{background:none}.btn.ghost:hover{background:rgba(155,20,27,.25)}
+.btn.sm{padding:8px 18px;font-size:.9rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;padding:70px 0 30px}
+.ch{padding:22px 18px;border:1px solid var(--line);background:linear-gradient(180deg,var(--card),#070707);transition:transform .5s var(--ease),border-color .4s}
+.ch:hover{transform:translateY(-6px);border-color:var(--red)}
+.ch b{color:var(--red2);font-size:.85rem}.ch h3{font-size:1.3rem}.ch p{color:var(--mut);font-size:.8rem;letter-spacing:.2em;direction:ltr;text-align:right}
+
+/* من أنا */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:10px}
+.it{padding:24px;border:1px solid var(--line);border-inline-start:3px solid var(--red);background:var(--card)}
+.it small{display:block;color:var(--red2);font-weight:700;letter-spacing:.12em}
+.it p{font-size:1.35rem;font-weight:700;line-height:1.5;margin-top:4px}
+
+/* المقولات */
+.qbar{display:flex;gap:10px;margin-bottom:14px}
+.in-t{flex:1;min-width:0;padding:12px 16px;background:#080808;border:1px solid var(--line);color:var(--tx);transition:border-color .3s}
+.in-t:focus{outline:0;border-color:var(--red2)}
+.qnav{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:16px 0}
+.qb{min-width:44px;height:44px;padding:0 14px;border:1px solid var(--line);font-weight:700;transition:.3s}
+.qb:hover{border-color:var(--red2);color:var(--red2)}
+.qb:disabled{opacity:.35;pointer-events:none}
+.jump{display:flex;gap:6px;align-items:center}
+.jump input{width:74px;height:44px;text-align:center;direction:ltr;background:#080808;border:1px solid var(--line);color:var(--tx)}
+.jump input:focus{outline:0;border-color:var(--red2)}
+.strip{direction:ltr;display:flex;gap:6px;overflow-x:auto;padding:6px 2px 12px;margin-bottom:18px;scrollbar-width:thin;scrollbar-color:var(--red) transparent;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;position:relative}
+.strip.drag{cursor:grabbing}
+.strip button{flex:none;width:46px;height:40px;border:1px solid var(--line);font:700 .85rem Tajawal;color:var(--mut);transition:.25s}
+.strip button:hover{border-color:var(--red2);color:var(--tx)}
+.strip button.on{background:var(--red);border-color:var(--red);color:#fff}
+.qc{position:relative;padding:28px 24px 24px;border:1px solid var(--line);border-inline-start:3px solid var(--red);background:linear-gradient(180deg,var(--card),#070707);overflow:hidden}
+.qn{position:absolute;top:2px;left:16px;font:800 4.6rem/1 Tajawal;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.1);direction:ltr}
+.qc h3{position:relative;color:var(--red2);font-size:1.15rem;margin-bottom:12px}
+.qt{position:relative;font-size:1.12rem;line-height:2;margin-bottom:18px}
+.ln{display:block}.ln b{color:var(--red2)}
+.qc.anim{animation:pin .45s var(--ease)}
+.res{display:grid;gap:12px}
+.res .qc{padding:22px}
+.res .qt{font-size:1.05rem;margin-bottom:14px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.cnt{color:var(--mut);margin-bottom:12px;font-size:.95rem}
+.none{padding:30px;text-align:center;color:var(--mut);border:1px dashed var(--line)}
+.toast{position:fixed;left:50%;bottom:90px;z-index:90;transform:translate(-50%,20px);background:var(--red);padding:10px 24px;font-weight:700;opacity:0;pointer-events:none;transition:.35s var(--ease)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* قريباً */
+.soon{text-align:center;padding:50px 24px;border:1px dashed var(--red);background:linear-gradient(180deg,var(--card),#070707)}
+.soon p{font-size:clamp(1.15rem,3.6vw,1.5rem);font-weight:700;line-height:1.9;max-width:560px;margin-inline:auto}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.chip{padding:6px 16px;border:1px solid var(--line);color:var(--mut);font-size:.9rem}
+.sg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:22px}
+
+/* المجتمع */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:16px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;padding:8px 18px;border:1px solid var(--line);font-weight:700;color:var(--mut);transition:.3s}
+.tabs button.on,.tabs button:hover{border-color:var(--red2);color:var(--tx)}
+.tabs button.on{background:var(--red)}
+.cd{padding:22px;border:1px solid var(--line);border-top:3px solid var(--red);background:var(--card);transition:transform .5s var(--ease),border-color .4s}
+.cd:hover{transform:translateY(-5px);border-color:var(--red2)}
+.cd small{color:var(--red2);font-weight:700;letter-spacing:.1em}
+.cd h3{font-size:1.2rem;margin:4px 0}
+.cd p{color:#c4beb9;font-size:1rem;line-height:1.8}
+
+/* حساباتي */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.soc{position:relative;display:block;padding:28px 24px;border:1px solid var(--line);background:linear-gradient(180deg,var(--card),#060606);overflow:hidden;transition:transform .5s var(--ease),border-color .4s}
+.soc::before{content:"";position:absolute;inset:auto 0 0;height:0;background:linear-gradient(transparent,rgba(155,20,27,.22));transition:height .6s var(--ease)}
+.soc:hover{transform:translateY(-8px);border-color:var(--red)}.soc:hover::before{height:100%}
 .soc>*{position:relative}
-.soc svg{width:44px;height:44px;margin-bottom:22px;transition:color .4s}.soc:hover svg{color:var(--r2)}
-.soc h3{font:600 1.3rem var(--cz);letter-spacing:.14em;direction:ltr}
-.soc .hd{color:var(--r2);margin:2px 0 12px;direction:ltr}
-.soc p{color:var(--mut);margin-bottom:22px}
-.go{display:flex;justify-content:space-between;border-top:1px solid var(--g3);padding-top:14px;direction:ltr}
-.foot{text-align:center;margin-top:80px;color:var(--mut);font-size:.85rem;display:grid;gap:8px;justify-items:center}
-/* modal */
-.modal,.lb{position:fixed;inset:0;z-index:700;display:none;place-items:center;background:rgba(3,3,3,.94);backdrop-filter:blur(8px)}
-.open{display:grid;animation:fo .4s both}@keyframes fo{from{opacity:0}}
-.mbox{width:min(980px,94vw);border:1px solid var(--r);background:#070707}
-.mm{aspect-ratio:16/9;background:#000;display:grid;place-items:center}.mm iframe{width:100%;height:100%;border:0}
-.me{color:var(--mut);text-align:center;padding:20px}
-.mi{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;flex-wrap:wrap}.mi small{color:var(--r2);display:block}
-.cx{position:absolute;top:max(14px,env(safe-area-inset-top));right:16px;width:44px;height:44px;border:1px solid var(--g3);z-index:5;transition:.3s}.cx:hover{border-color:var(--r2)}
-.lbf{position:relative;width:min(92vw,980px);aspect-ratio:16/10;max-height:76svh;border:1px solid rgba(155,20,27,.6);overflow:hidden;transition:opacity .35s,transform .45s var(--out)}
-.lbf b{position:absolute;right:22px;top:12px;font:800 clamp(3rem,12vw,7rem)/1 var(--cz);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18)}
-.lbf span{position:absolute;left:22px;bottom:18px}
-.lbn{position:absolute;top:50%;width:48px;height:48px;margin-top:-24px;border:1px solid var(--g3);font-size:1.6rem;z-index:5;transition:.3s}.lbn:hover{border-color:var(--r2)}
-.lbp{left:12px}.lbx{right:12px}.lbc{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));inset-inline:0;text-align:center;color:var(--mut)}
-/* fx */
-#fx{position:fixed;inset:0;z-index:900;pointer-events:none}#fx.on{pointer-events:all}
-.fb{position:absolute;inset:0;background:#030303;opacity:0}
-.ft,.fu{position:absolute;left:0;right:0;height:50.2%;background:#050505}.ft{top:0;transform:translateY(-100%)}.fu{bottom:0;transform:translateY(100%)}
-.fl{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--r2);transform:scaleX(0);opacity:0;box-shadow:0 0 12px rgba(193,39,45,.5)}
-.fs{position:absolute;inset:0;display:flex}.fs i{flex:1;background:#050505;transform:scaleY(0)}.fs i:nth-child(3n){background:#240608}
-.fti{position:absolute;inset:0;display:grid;place-content:center;text-align:center;opacity:0;direction:ltr}
-.fti small{color:var(--r2)}.fti b{font:800 clamp(1.8rem,8vw,3.4rem) var(--cz);margin-top:8px}
-#stage.glitch{animation:gl .5s steps(2) both}
-@keyframes gl{15%{transform:translate(-7px,2px) skewX(2deg);filter:hue-rotate(-15deg) saturate(1.6)}30%{transform:translate(6px,-3px);clip-path:inset(12% 0 40% 0)}45%{transform:translate(-4px,1px);clip-path:inset(55% 0 8% 0)}60%{clip-path:none}}
-@media(max-width:900px){.ag,.cm{grid-template-columns:1fr}.gg{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}.gi,.gi.s2,.gi.s6{grid-column:span 1;grid-row:span 2}.gi.s1,.gi.s5{grid-row:span 3}.gi.s4{grid-column:span 2;grid-row:span 2}}
-@media(max-width:820px){.links,#sv{display:none}.tabbar{display:grid}.nav{padding:12px 18px}.page{padding:88px 0 110px}.hero{grid-template-columns:1fr;padding:70px 22px 110px;gap:0;align-content:start}.hart{order:-1;height:42svh}.hcopy{text-align:center}.cta{justify-content:center}.scr{display:none}.wg{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}[data-r],[data-r] span{opacity:1!important;transform:none!important;clip-path:none!important}.mq div{animation:none}}
+.soc svg{width:42px;height:42px;margin-bottom:14px;transition:color .4s,transform .5s var(--ease)}
+.soc:hover svg{color:var(--red2);transform:scale(1.1)}
+.soc h3{font-size:1.45rem;line-height:1.3}
+.soc .id{color:var(--red2);direction:ltr;text-align:right;font-weight:700}
+.soc p{color:var(--mut);margin:6px 0 16px;font-size:.95rem}
+.go{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;font-weight:700;font-size:.9rem}
+footer{padding:36px 20px 46px;text-align:center;color:var(--mut);border-top:1px solid var(--line);font-size:.9rem}
+footer b{display:block;color:var(--tx);font:800 1.25rem Tajawal;letter-spacing:.1em}
+
+@media(max-width:820px){.links{display:none}.tabbar{display:grid}.page{padding:90px 0 100px}footer{padding-bottom:90px}}
+@media(max-width:520px){.qc{padding:26px 18px 20px}.qn{font-size:3.6rem}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
-<body class="lock off">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3efe9"/><stop offset=".55" stop-color="#8d8782"/><stop offset="1" stop-color="#b3262c"/></linearGradient>
-<symbol id="crown" viewBox="0 0 100 100"><g fill="rgba(155,20,27,.1)" stroke="url(#cg)" stroke-width="1.1" stroke-linejoin="round"><path d="M14 74 8 30l21 20 21-32 21 32 21-20-6 44Z"/><path d="M14 74h72v8H14zM14 82h72v6H14z"/></g><path d="M29 50l7 24M50 18v56M71 50l-7 24" stroke="rgba(155,20,27,.6)" stroke-width=".6" fill="none"/><g fill="#b3262c"><circle cx="8" cy="28" r="2.4"/><circle cx="50" cy="15" r="2.8"/><circle cx="92" cy="28" r="2.4"/></g></symbol></defs></svg>
-
-<div id="loader"><div class="ld">
- <h1>4_AD10</h1>
- <div class="trk"><i id="lf"></i></div>
- <div class="pc"><span id="ln">0</span>%</div>
- <div class="gate" id="gate" hidden>
-  <p class="royal">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
-  <button class="btn solid" onclick="ENTER(1)"><span>ENTER</span></button>
-  <button class="quiet" onclick="ENTER(0)">دخول صامت</button>
- </div></div></div>
-
-<canvas id="cv" aria-hidden="true"></canvas><div class="grain"></div><div class="vig"></div><div id="glow"></div>
-
+<body>
 <header class="nav" id="nav">
- <a class="logo lb2" href="#home" data-go="home"><i>♚</i>4_AD10</a>
- <nav class="links lb2">
-  <a href="#home" data-go="home"><b>01</b>HOME</a><a href="#about" data-go="about"><b>02</b>ABOUT</a><a href="#works" data-go="works"><b>03</b>WORKS</a><a href="#gallery" data-go="gallery"><b>04</b>GALLERY</a><a href="#community" data-go="community"><b>05</b>COMMUNITY</a><a href="#socials" data-go="socials"><b>06</b>SOCIALS</a>
+ <a class="logo" href="#home" data-go="home"><b>♚</b> 4_AD10</a>
+ <nav class="links" id="links">
+  <a href="#home" data-go="home">الرئيسية</a><a href="#about" data-go="about">من أنا</a><a href="#quotes" data-go="quotes">مقولات الأنمي</a><a href="#soon" data-go="soon">قريباً</a><a href="#community" data-go="community">المجتمع</a><a href="#socials" data-go="socials">حساباتي</a>
  </nav>
- <div class="snd"><button class="sbtn" id="sb" aria-label="الصوت"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sw" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/><path class="sx" d="m17 9 5 6M22 9l-5 6"/></svg></button><input id="sv" type="range" min="0" max="100" value="60" aria-label="مستوى الصوت"></div>
 </header>
-<nav class="tabbar"><a href="#home" data-go="home"><b>01</b>HOME</a><a href="#about" data-go="about"><b>02</b>ABOUT</a><a href="#works" data-go="works"><b>03</b>WORKS</a><a href="#gallery" data-go="gallery"><b>04</b>GALLERY</a><a href="#community" data-go="community"><b>05</b>FANS</a><a href="#socials" data-go="socials"><b>06</b>SOCIAL</a></nav>
+<nav class="tabbar" id="tabbar"><a href="#home" data-go="home">الرئيسية</a><a href="#about" data-go="about">من أنا</a><a href="#quotes" data-go="quotes">المقولات</a><a href="#soon" data-go="soon">قريباً</a><a href="#community" data-go="community">المجتمع</a><a href="#socials" data-go="socials">حساباتي</a></nav>
 
-<main id="stage">
+<main>
+<!-- 01 الرئيسية -->
 <section class="page active" id="home">
- <div class="hero">
-  <div class="hbg" aria-hidden="true"><div data-depth=".02"><div class="haze"></div></div><div data-depth=".05"><div class="giant">4_AD10</div></div><span class="hl a"></span><span class="hl b"></span></div>
-  <div class="hcopy">
-   <p class="eye lb2" data-r="up">— ANIME · EDITS · CINEMA</p>
-   <h1 class="ht" data-r="split">4_AD10</h1>
-   <p class="royal" data-r="up" style="--d:.5s">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
-   <p class="wel" data-r="up" style="--d:.7s">Welcome to the shadows.<br>Every frame tells a story.</p>
-   <div class="cta" data-r="up" style="--d:.9s"><button class="btn solid lb2" data-go="about"><span>ENTER THE WORLD</span><i>→</i></button><button class="btn lb2" data-go="works"><span>VIEW WORKS</span></button></div>
-  </div>
-  <div class="hart"><div class="ring"></div><div data-depth=".04" style="position:absolute;inset:0"><div class="emb" data-r="img" style="--d:.2s"><svg viewBox="0 0 100 100"><use href="#crown"/></svg></div></div></div>
-  <div class="scr lb2"><i></i></div>
- </div>
- <div class="mq" aria-hidden="true"><div><span>4_AD10 ✦ ANIME EDITS ✦ CINEMATIC ✦ AMV ✦ STORYTELLING ✦ </span><span>4_AD10 ✦ ANIME EDITS ✦ CINEMATIC ✦ AMV ✦ STORYTELLING ✦ </span></div></div>
- <div class="wrap chs"><h2 class="st" data-r="split">CHAPTERS</h2><div class="cg">
-  <a class="ch" href="#about" data-go="about" data-r="up"><b>02</b><h3>ABOUT</h3><p>من أنا</p><i>→</i></a>
-  <a class="ch" href="#works" data-go="works" data-r="up" style="--d:.08s"><b>03</b><h3>WORKS</h3><p>أعمالي</p><i>→</i></a>
-  <a class="ch" href="#gallery" data-go="gallery" data-r="up" style="--d:.16s"><b>04</b><h3>GALLERY</h3><p>المعرض</p><i>→</i></a>
-  <a class="ch" href="#community" data-go="community" data-r="up" style="--d:.24s"><b>05</b><h3>COMMUNITY</h3><p>المجتمع</p><i>→</i></a>
-  <a class="ch" href="#socials" data-go="socials" data-r="up" style="--d:.32s"><b>06</b><h3>SOCIALS</h3><p>حساباتي</p><i>→</i></a></div></div>
+ <div class="hero"><div>
+  <span class="hi rv">أهلاً بك في عالم</span>
+  <h1 class="name en rv" style="--d:.1s">4_AD10</h1>
+  <p class="uni rv" style="--d:.15s">UNIVERSE</p>
+  <p class="tag rv" style="--d:.25s">أهلاً بك في عالمي. كل لقطة تحكي قصة، وكل مقولة لها أثر.</p>
+  <div class="cta rv" style="--d:.35s"><button class="btn" data-go="quotes">مقولات الأنمي</button><button class="btn ghost" data-go="about">من أنا</button><button class="btn ghost" data-go="socials">حساباتي</button></div>
+ </div></div>
+ <div class="wrap"><div class="cg">
+  <a class="ch rv" href="#about" data-go="about"><b>٠١</b><h3>من أنا</h3><p>ABOUT</p></a>
+  <a class="ch rv" style="--d:.06s" href="#quotes" data-go="quotes"><b>٠٢</b><h3>مقولات الأنمي</h3><p>QUOTES</p></a>
+  <a class="ch rv" style="--d:.12s" href="#soon" data-go="soon"><b>٠٣</b><h3>قريباً</h3><p>COMING SOON</p></a>
+  <a class="ch rv" style="--d:.18s" href="#community" data-go="community"><b>٠٤</b><h3>مجتمع الأنمي</h3><p>COMMUNITY</p></a>
+  <a class="ch rv" style="--d:.24s" href="#socials" data-go="socials"><b>٠٥</b><h3>حساباتي</h3><p>SOCIALS</p></a>
+ </div></div>
 </section>
 
+<!-- 02 من أنا -->
 <section class="page" id="about"><div class="wrap">
- <header class="sh"><p class="eye lb2" data-r="up">02 — ABOUT</p><h2 class="st" data-r="split">WHO AM I</h2><span class="rule" data-r="line"></span></header>
- <div class="ag">
-  <figure class="pt" data-r="img"><div class="emb"><svg viewBox="0 0 100 100"><use href="#crown"/></svg></div><figcaption>4_AD10</figcaption></figure>
-  <div class="ac">
-   <p class="royal" data-r="up">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
-   <h3 class="hello" data-r="up" style="--d:.1s">أنا <em>عبدالله</em> — خلف هوية <span dir="ltr">4_AD10</span></h3>
-   <p data-r="up" style="--d:.2s">صانع محتوى ومونتير، أبني عوالم أنمي بصرية بإيقاع سينمائي: قصّ دقيق، ألوان داكنة، وموسيقى تحمل المشهد إلى أبعد من حدوده.</p>
-   <p data-r="up" style="--d:.3s">كل مقطع أصنعه هو مشهد صغير له مزاجه وقصته. هنا تجد أعمالي ومجتمع المتابعين وكل ما يخص هوية 4_AD10.</p>
-   <ul class="sk"><li data-r="up" style="--d:.35s"><b>01</b>AMV EDITING</li><li data-r="up" style="--d:.42s"><b>02</b>ANIME EDITS</li><li data-r="up" style="--d:.49s"><b>03</b>CINEMATIC</li><li data-r="up" style="--d:.56s"><b>04</b>RHYTHM &amp; SOUND</li></ul>
-   <button class="btn lb2" data-go="works" data-r="up" style="--d:.6s"><span>MY WORKS</span><i>→</i></button>
-  </div></div></div></section>
+ <p class="eye rv">02 — من أنا</p><h2 class="st rv">عن صاحب الموقع</h2><span class="rule rv"></span>
+ <div class="info" id="info"></div>
+</div></section>
 
-<section class="page" id="works"><div class="wrap">
- <header class="sh"><p class="eye lb2" data-r="up">03 — SELECTED EDITS</p><h2 class="st" data-r="split">MY WORKS</h2><span class="rule" data-r="line"></span><p class="sub" data-r="up">أفضل أعمال المونتاج. اضغط على أي عمل لمشاهدته أو فتح الرابط الأصلي.</p></header>
- <div class="wg" id="wg"></div></div></section>
+<!-- 03 مقولات الأنمي -->
+<section class="page" id="quotes"><div class="wrap">
+ <p class="eye rv">03 — ANIME QUOTES</p><h2 class="st rv">أشهر مقولات الأنمي</h2><span class="rule rv"></span>
+ <div class="qbar"><input class="in-t" id="qs" type="search" placeholder="ابحث باسم الشخصية أو بكلمة من المقولة…" autocomplete="off" aria-label="بحث"></div>
+ <div id="qview">
+  <div class="qnav">
+   <button class="qb" id="qFirst" title="الأولى">«</button>
+   <button class="qb" id="qPrev">السابق</button>
+   <div class="jump"><input id="qj" type="number" min="1" inputmode="numeric" placeholder="رقم" aria-label="رقم المقولة"><button class="qb" id="qGo">اذهب</button></div>
+   <button class="qb" id="qNext">التالي</button>
+   <button class="qb" id="qLast" title="الأخيرة">»</button>
+  </div>
+  <div class="strip" id="strip" aria-label="شريط الأرقام"></div>
+  <div id="qcard"></div>
+ </div>
+ <div id="qres" hidden></div>
+</div></section>
 
-<section class="page" id="gallery"><div class="wrap">
- <header class="sh"><p class="eye lb2" data-r="up">04 — FRAMES</p><h2 class="st" data-r="split">GALLERY</h2><span class="rule" data-r="line"></span><p class="sub" data-r="up">إطارات سينمائية. اضغط على أي إطار لتكبيره.</p></header>
- <div class="gg" id="gg"></div></div></section>
+<!-- 04 قريباً -->
+<section class="page" id="soon"><div class="wrap">
+ <p class="eye rv">04 — COMING SOON</p><h2 class="st rv">قريباً</h2><span class="rule rv"></span>
+ <div class="soon rv"><p>هذا القسم قيد التطوير، وهناك الكثير من الأشياء القادمة. ترقبوا المفاجآت!</p><div class="chips" id="chips"></div></div>
+ <div class="sg2" id="soonList"></div>
+</div></section>
 
+<!-- 05 مجتمع الأنمي -->
 <section class="page" id="community"><div class="wrap">
- <header class="sh"><p class="eye lb2" data-r="up">05 — THE CIRCLE</p><h2 class="st" data-r="split">COMMUNITY</h2><span class="rule" data-r="line"></span><p class="sub" data-r="up">اقترح شخصية للمونتاج القادم وصوّت على القرارات.</p></header>
- <div class="cm">
-  <article class="card" data-r="up"><div class="ct"><b>01</b><h3>اقترح شخصية</h3></div>
-   <form id="sf" autocomplete="off"><label>اسم الشخصية<input name="c" required maxlength="40" placeholder="مثال: Levi Ackerman"></label><label>اسم الأنمي<input name="a" required maxlength="40" placeholder="مثال: Attack on Titan"></label><label>لماذا؟ (اختياري)<textarea name="w" rows="2" maxlength="140"></textarea></label><button class="btn solid lb2" type="submit"><span>إرسال</span></button></form>
-   <p class="note">الاقتراحات والأصوات تُحفظ على هذا الجهاز حالياً.</p></article>
-  <article class="card" data-r="up" style="--d:.1s"><div class="ct"><b>02</b><h3>لوحة الاقتراحات</h3><span class="cnt" id="sc">0</span></div><ul class="sl" id="sl"></ul></article>
-  <div id="polls" data-r="up" style="--d:.15s"></div></div></div></section>
+ <p class="eye rv">05 — ANIME COMMUNITY</p><h2 class="st rv">مجتمع الأنمي</h2><span class="rule rv"></span>
+ <p class="sub rv">شخصيات، حقائق، ترشيحات، نقاشات وتحديات لمحبي الأنمي.</p>
+ <div class="tabs" id="tabs"></div>
+ <div class="sg2" id="cm"></div>
+</div></section>
 
+<!-- 06 حساباتي -->
 <section class="page" id="socials"><div class="wrap">
- <header class="sh"><p class="eye lb2" data-r="up">06 — FIND ME</p><h2 class="st" data-r="split">SOCIALS</h2><span class="rule" data-r="line"></span><p class="sub" data-r="up">حساباتي الرسمية. يوتيوب وتيك توك لصناعة المحتوى، وإنستغرام حساب شخصي.</p></header>
+ <p class="eye rv">06 — SOCIALS</p><h2 class="st rv">حساباتي الرسمية</h2><span class="rule rv"></span>
  <div class="sg" id="sg"></div>
- <footer class="foot"><p class="royal">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p><p>© <span id="yr"></span> 4_AD10</p></footer></div></section>
+</div></section>
 </main>
 
-<div id="fx" aria-hidden="true"><div class="fb"></div><div class="ft"></div><div class="fu"></div><div class="fl"></div><div class="fs"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="fti"><small class="lb2">4_AD10</small><b></b></div></div>
-<div class="modal" id="modal"><button class="cx" data-close aria-label="إغلاق">✕</button><div class="mbox"><div class="mm" id="mm"></div><div class="mi"><div><small class="lb2" id="mg"></small><h3 id="mt"></h3></div><a class="btn lb2" id="ml" target="_blank" rel="noopener noreferrer"><span>الرابط الأصلي</span><i>↗</i></a></div></div></div>
-<div class="lb" id="lb"><button class="cx" data-close aria-label="إغلاق">✕</button><button class="lbn lbp" id="lbp" aria-label="السابق">‹</button><div class="lbf" id="lbf"><b></b><span class="lb2"></span></div><button class="lbn lbx" id="lbn" aria-label="التالي">›</button><div class="lbc lb2" id="lbc"></div></div>
+<footer><b class="en">4_AD10 UNIVERSE</b><span>© <span id="yr"></span> عبدالله — جميع الحقوق محفوظة</span></footer>
+<div class="toast" id="toast" role="status"></div>
 
-<!-- (1) سكربت التحميل: مستقل تماماً، يشتغل حتى لو صار خطأ بالباقي -->
+<!-- ═════ المقولات الثمانون (لإضافة مقولة: أضف سطراً جديداً قبل ];  بنفس الشكل ["اسم الشخصية",`النص`], ) ═════ -->
 <script>
-(function(){
-var n=document.getElementById('ln'),f=document.getElementById('lf'),g=document.getElementById('gate'),p=0,sh=0;
-function show(){if(sh)return;sh=1;n.textContent='100';f.style.transform='scaleX(1)';g.hidden=false}
-(function t(){p+=2.2;if(p>=100){show();return}n.textContent=Math.floor(p);f.style.transform='scaleX('+p/100+')';setTimeout(t,35)})();
-setTimeout(show,3500);
-window.ENTER=function(){var l=document.getElementById('loader');if(!l)return;l.classList.add('out');setTimeout(function(){l.remove();document.body.classList.remove('lock');var a=document.querySelectorAll('[data-r]');for(var i=0;i<a.length;i++)a[i].classList.add('in')},900)};
-})();
+window.QUOTES=[
+["رورونوا زورو",`لم نعد نلوم الغرباء! فالأقربون فعلوا الأسوأ! حقاً! إنكسرنا من المكان الذي آمنا به، يا لها من حقيقة مؤلمة!`],
+["رورونوا زورو",`أنا لا أُخاف الموت، ولا أخشى المخاطرة.. قررت أن أخاطر بحياتي في سبيل تحقيق هذا الهدف، ولا يحق لأحد أن يصفني بالأحمق، لأن النجاح لا يتحقق من دون تضحيات.. لن أسمح لليأس أن يسيطر علي.`],
+["أوبيتو أوتشيها",`انظر إلي.. لا يوجد إلا فراغ في قلبي.. لم أعد أشاعر حتى بأي ألم كان.. لا تشعر بتأنيب الضمير.. فقط فتحت هذه الفجوة بهذا العالم الجهنمي! في الماضي كان كل ما شعرت به هنا هو الألم! فما المعنى من ذلك؟! لهذا تخليت عن كل شيء.`],
+["مونكي دي لوفي وزورو",`لوفي: نحن في طريقنا إلى القرصنة يا زورو.. لا شك أننا سنواجه مغامرات كثيرة! نعم سأصير زعيم القراصنة!
+زورو: قل لي يا لوفي.. أنت دائماً تكرر هذه العبارة، هل من سبب معين لذلك؟
+لوفي: لا أبداً، ولكن.. وعدت ذلك الرجل بأن أجمع فريقاً، وأن أبحث عن الكنز المفقود، وأن أصير زعيم القراصنة!`],
+["مونكي دي لوفي",`عندما أغضب لا أستطيع أن أنام، وعندما أحزن.. لا أكف عن التفكير بالسبب الذي أحزنني، لا يمكنني أن أتحكم في نفسي.`],
+["أوروتشيمارو",`أوروتشيمارو: لا مغزى من النحيب والحزن على الذين فقدوا حياتهم، إن كان هناك أي معنى وراء الموت فيجب علينا الاستفادة منه.
+صوت جانبي: إذن وما المعنى من الحياة؟
+أوروتشيمارو: لا يوجد معنى.. سيكون هناك معنى للحياة فقط إن كانت خالدة.`],
+["ناروتو أوزوماكي",`أغلق فمك! لماذا لم تعاملني كمعلم لي إلا في هذا الوقت؟! أيها المعلم.. أنت لا تعرف ما أعانيه، حتى لو عدت معك ستبقى الأمور كما هي.. أنا دائماً وحيد؛ ومنبوذ دائماً، لا أحد يهتم بي ولا أحد يعيرني اهتماماً! ولكن في هذه المرة.. إن الأمر مختلف تماماً، إذا أنجزت المهمة فسيقبلونني كصديق، وعندها لن أبقى بمفردي بعد الآن.. ولن أشعر بمعاناة الوحيدة!`],
+["الدكتور هيلولوك",`أتُعرف متى يموت الإنسان؟ هل يموت عندما تدخل رصاصة في قلبه؟ لا! هل يموت بسبب مرض قاتل؟ لا! هل يموت إن دخل السم إلى جسده؟ لا! يموت.. عندما ينساه الناس! حتى لو مت الآن فأنا باقٍ في ذاكرة الجميع.`],
+["زورو ولوفي",`زورو: قل لي، كم رجلاً تنوي أن تضم إلى الفريق؟ العمل الذي تخطط له عملٌ كبير جداً يا لوفي، وأظن أنه يحتاج إلى رجال كثيرين لتضمهم إلى الفريق!
+لوفي: أنت تكفي!
+زورو: ها؟ أنا؟!
+لوفي: أنا وأنت فقط!`],
+["شارة خلف حائط الحديقة",`وحيدٌ حزين
+في عالمٍ مجهول
+تائهٌ هو وبعيد
+كُلُّ ما عشناه
+بات صدى ذكريات
+من أين أتينا؟
+وما مصيرنا؟
+إن ضاعت الأحلام.. فالنسرح في الخيال!`],
+["ناروتو وإيروكا",`الطالبة: نعم، أنت أيها الصبي تزعجنا! أنت كما الحشرة المزعجة.
+إيروكا: أنت تقسو عليه يا "هيباتشي"، لكنك محقٌّ أيضاً.
+ناروتو: ماذا تقول؟!
+إيروكا: أيها الطلاب! كفُّوا عن السخرية من "ناروتو"..
+ناروتو: معلمي؟
+إيروكا: لا تسخروا منه.. بل تجاهلوه!
+ناروتو: ها؟!`],
+["عامر",`لن أستسلم مهما حدث معي.. سأتابع مسيرتي! ففي قلبي عاصفة من الطموح المتقد.. سوف أدرس بجد، وسأكمل دراستي وحدي كذلك العالم! سأستمد قوتي من صعوبة ظروف تعلمي.. وستكون إرادتي هي المفتاح الذي سيفتح لي الأبواب المرصدة في طريقي لتحقيق هدفي، وسأحققه! سأسلك هذه الطريق الفارغة المرسومة أمامي.. وسأبنيها بأحلامي!`],
+["زورو ولوفي",`زورو: زعيم القراصنة؟! هل قلت إنك تريد أن تصير زعيم القراصنة يا ولد؟ هل أنت مدرك لما تقول؟
+لوفي: زعيم القراصنة تعني زعيم القراصنة، ليس لها معنى آخر!
+زورو: أنا أيضاً دهشت من ذلك، ولكن الواضح أن لوفي جادٌّ في هذا.. يريد أن يصير زعيم القراصنة ويحصل على الكنز، ويحصل على القطعة النادرة التي فيه!
+لوفي: إيهيهيهيهي!`],
+["زورو ولوفي",`زورو: أنت مجدداً؟ ماذا تريد مني؟
+لوفي: سأفك وثاقك على شرط أن تنضم إليّ!
+زورو: أنضم إليك؟!
+لوفي: سأشكل فريق قراصنة، ولذلك أبحث عن أمثالك.
+زورو: توقف! أتريدني أن أصير شريراً يا هذا؟ مستحيل.. مستحيل!
+لوفي: لماذا تكره القراصنة؟
+زورو: أشرارٌ يعيشون على السلب والنهب!
+لوفي: ما المشكلة في ذلك؟ الجميع يقول إنك شرير، فهل أنت كما يقولون يا زورو؟
+زورو: أنا لا أهتم لما يقوله الناس، أنا أعرف نفسي ولذلك أفعل ما اريد.. هه! أنا لست نادماً على أي شيء فعلته فيما مضى، هل تفهمني؟`],
+["عهد الأصدقاء",`مرت الأيام بسرعة.. أما زلت تتذكر اليوم الأول للقائنا؟ قضينا معاً فترة قصيرة، كنت خلالها أفضل شخص تعرفت عليه في حياتي كلها.. أعدك بأن تكون صداقتنا حقيقية للأبد!`],
+["أوبيتو أوتشيها",`أريد أن أعرف ماذا حدث لي؟ لماذا ضاع مني قلبي؟ أصبحت عواطفي باردة.. لا أحب أحداً! متى تغيرت وضاع مني قلبي؟ كنت ولداً عادياً مهمشاً.. لكنني سعيد! يومها، كان قلبي معي.. كنت لطيفاً، أحب الجميع، والابتسامة دوماً على وجهي.. إنني أذرف الدموع.. لكن لماذا؟ ما الذي يدفعني إلى ذلك؟`],
+["غون فريكس",`أنا لا أخجل من الاعتراف بالحقيقة.. لا عيب أبداً في أن أفكر بنقاط ضعفي.. عليّ أن أعمل وأعمل لأكتسب الخبرة والقوة!`],
+["جيرايا",`الألم أحياناً يولد داخلنا كره، وإن أذيت شخصاً ما ستصبح مكروهاً.. وعندها ستبدأ بالشعور بالذنب! ولكن، إذا تقبلت ألمك منذ البداية، ستتعامل مع الآخرين بلطف، ولن تسمح للكره بالسيطرة عليك والتحكم بك.. إن تقبلنا لآلامنا وفهمها لمعرفة كيفية التعامل معها، هذا هو المعنى الحقيقي للنمو، والتطور، والارتقاء!`],
+["ساسكي وإيتاتشي",`ساسكي: أبي لا يفكر إلا فيك يا أخي..
+إيتاتشي: وهل تكرهني لهذا؟
+ساسكي: لا مشكلة عندي..
+إيتاتشي: ليس غريباً أن يعيش الشينوبي وهو غارق في كره الآخرين له، هه! كونک مميزاً له ثمنه أيضاً.. إذا ملكت القوة انزلت عن غيرك وصصرت متكبراً، حتى لو حققت كل ما يطلبه منك الناس جميعاً. أما نحن، فما من أخوين في هذا العالم مثلنا! فأنا سأكون أمامك مثل الجدار الذي يجب عليك تجاوزه لكي تتابع.. ولو كرهتني من أعماق قلبك!`],
+["غارا",`إذاً.. أنا قد أكون مصاباً بجرح ما، مثل بقية الناس.. فأنا أتألم دائماً! لا أنزف أي دم.. لكن هذا المكان يؤلمني كثيراً!`],
+["زورو وميهوك",`ميهوك: لم تريد أن يخترق هذا قلبك؟ أجبني!
+زورو: لا أدري لماذا.. صدقني إنني لا أدري! ولكنني تذكرت كل الوعد التي قطعتها على نفسي للذين تدربوني.. لقد عقدوا علي آمالاً كثيرة، فقررت أن لا أتراجع ولو كانت هذه نهايتي!
+ميهوك: ما تفعله جنون!
+زورو: منذ الآن لم يعد هناك فرق كبير..
+ميهوك: تريد الموت؟
+زورو: لن تخيفني بذكر الموت!`],
+["لوفي",`أنا لست قرصاناً.. هذه هي الحقيقة! ولكنني قررت أن أصير زعيم فريق بحارة.. المسألة مسألة قرار.. أتفهم؟`],
+["ناروتو وميزوكي",`ناروتو: أتذكر كيف كرهتهم حين ذلك لأنهم كرهوني.. ولم أستطع أن أفهم لماذا.. تساءلت عن سبب وجودي..
+ميزوكي: روح وحش الثعلب الذي قتل والدي "إيروكا" ودمر قريتنا في جسدك! أنت الوحش ذو الذيل التسعة!
+ناروتو: لم يكن خطئي وجود هذا الشيطان في داخلي.. لكنهم جميعاً تصرفوا كما لو كان خطئي، وهذا تماماً ما زاد الأمر سوءاً!`],
+["جيرايا",`هذا العالم مليء بالحرب.. إنه عالم تملؤه الكراهية والحقد! وأنا أفكر دوماً أن أفعل شيئاً حيال هذا الأمر، وأبحث دائماً لمعرفة ما هية السلام الحقيقي الذي أحلم به..`],
+["مجهول",`لن تعيش هذا اليوم ثانيةً.. لا تدعه يمر بحزن، كن سعيداً وستغير كل شيء حولك! لقد حزنت قليلاً، لكن هذا الحزن لا يفيدني أبداً.. سأستقبل يومي بفرح، نعم يجب أن أكون سعيداً.`],
+["سانجي ولوفي",`سانجي: متمسكٌ بحلمي، حتى لو كان سخيفاً.. سأذهب من أجل هدفي وهو العثور على البحر الأزرق الصافي.
+لوفي: سانجي!
+سانجي: أجل كما أردت.. سأصحبك في الطريق لتصير زعيم القراصنة.`],
+["مجهول",`كيف لكي أن تعيشي في منزل كبير كهذا وتبكين؟ رغم أنني وحيد وليس لدي أي أحد لكني لا أبكي أبداً، نعم بكل تأكيد أنا لا أبكي أبداً..`],
+["زورو",`المتحدث 1: إذاً أنت تريد أن تموت يا زورو..
+زورو: أنا لا أخاف الموت، ولا أخشى المخاطرة.. لأنني عندما قررت أن أصير أبراً من حمل السيف في هذا العالم، قررت أن أخاطر بحياتي في سبيل تحقيق هذا الهدف.. ولا يحق لأحد أن يصفني بالأحمق، لأن النجاح لا يتحقق من دون تضحيات.. لن أسمح لليأس أن يسيطر علي!`],
+["لوفي",`قد تكون إنساناً لطيفاً لوقت طويل ولا أحد ينتبه لك، لكن بمجرد أن تخطئ سينسى الناس أنك كنت شخصاً رائعاً يوماً ما..`],
+["زورو",`أنا لم أعد أرى أي حلم! كأن أحلامي نفدت.. لعل هذا لأني أَمَطْتُ اللثام عن كل الأسرار التي من حولي، ولهذا! تراني أعيش في هذه الغرفة المظلمة أستجمع أموري المشتتة، فأنا اليوم سقيم.. وكأس الماء هذا هو كل ثروتي.`],
+["مجهول",`أنت تردد كثيراً.. لديك رغبة قوية في المضي قدماً، ولكن ارتباكك وخوفك يجعلانك تتردد في قتال خصمك في مواضع كثيرة..`],
+["مجهول",`المتحدث 1: هِي.. أنت! هل رأيت في حياتك قرصاناً يبتسم وهو على منصة الموت؟
+المتحدث 2: لا، لم أَرى.. حتى أكبر المخادعين كان يشحب لونهم حينما يدركون أنها النهاية.
+المتحدث 1: ولكنه ابتسم.. فذاك الفتى أعاد بذاكرتي إلى اثنين وعشرين عاماً.. وعلى هذه المنصة، ابتسم ملك القراصنة "روجر".`],
+["كاكاشي",`لكل منكم هدفٌ في الحياة يطمح إلى تحقيقه، واجتهادكم كفيلٌ بأن يحول الحلم من خيالٍ إلى واقع.. حياتكم، أنتم تخططون لها، وبجهدكم تصلون إلى ما تطمحون.. الحياة لوحة فارغة وأنتم الرسامون، وبقدر ما تتعبون برسمها وتعملون عليها بجد، ستغدو لوحةً أجمل.`],
+["إيتاتشي",`اسمعني جيداً.. أهالي القرية الذين كانوا يكرهونك أصبحوا يحبونك، وغدوا يعتبرونك زميلاً لهم أيضاً.. هذا لأنك قاتلت ببسالة، وكدت أن تضحي بنفسك كي تنال قبولهم. قلت إن كل من يهتم بك ساعدك بالوصول إلى هنا.. إن نسيت الآخرين بحصولك على القوة، فستصبح متغطراساً وأنانياً.. وغدوت على شاكلة مادارا تماماً..`],
+["رورونوا زورو",`نفسيتي تتحسن حين أتقن فن التجاهل، فليس كل شيء يستحق مني ردة فعل! وليس كل رأي يستحق أن أنفعل عليه، ولا كل حدث يستحق أن أكبره، ولا كل كلمة تستحق أن أجيب عنها. حين أصمت وأنظر بتمعن، أدرك أنني لا أستطيع تغيير كل ما حولي.`],
+["مجهول",`دافع عما هو غال على قلبك، ولا تبال بالخطر أو الحزن. تشجع وكن صلبا كالصخر، حتى لو عرضت حياتك للخطر، فلا تستسلم! ودافع إلى النهاية عن نفسك، حتى لو لم يبق لديك سوى يديك!`],
+["مجهول",`يا قلبُ لا تبكِ عليها إنها..
+تهوى الفراقَ وبالمشاعرِ تلعبُ
+يا قلبُ لا ترضى علينا ذلّةً
+إني عزيزٌ شامخٌ لا أُغلبُ!`],
+["رورونوا زورو",`إسمع! الرجل الذي يحمل الآخرين مسؤولية أخطائه.. لا يزال في بداية طريقه.. أما من يلوم نفسه فقط.. قطع نصف الطريق نحو النجاح.. والذي لا يلوم أحداً.. فقط وصل إلى غايته.. وحقق الإتزان الذاتي.`],
+["عهد الأصدقاء",`تعرفت على أصدقاء يتحلون بأخلاق نبيلة، رغم أنهم من أسر فقيرة، ولقد أُجبروا على هذا العمل مقابل مبالغ زهيدة. كنا نتساعد ونحب بعضنا، ولولا أننا أصدقاء حقيقيون لهلك بعضنا من المرض والجوع. أنا أحب هؤلاء الأولاد وأحترمهم كثيراً، ولولاهم لما استطعت أن أقف أمامكم الآن. لذا أرى أن النبيل ليس لقباً، بل هو خُلق.`],
+["غامبول",`ذات مرة سُئل شخص صديقه: ماذا أعني لك؟ قال له: أنت وتيني. قال له: ما هو الوتين؟ فأجابه: هو شريان متصل بالقلب، إذا انقطع.. انقطعت الحياة!`],
+["مجهول",`الحب يبدأ عندما ينتهي الحماس.. لهفة البدايات ليست حباً.. فالإنسان لا يحب في أسبوع أو شهر.. لا يمكنك أن تقول إنك تحب البحر وأنت تقف على الشاطئ.. لهذا يجب أن تخوض في أعماقه، وتضربك أمواجه، وتشرب من مياهه المالحة، وتجرح قدمك بصخرة، فتلمس عيوبه، وترى ظلماته، وتعرف كيف يغضب.. وبعدها فقط، إما أن تحبه كله أو تكرهه كله.`],
+["إيتاتشي",`أنت الآن أصبحت تعرف كل الحقيقة.. أنا تعمدت إبعادك عني وجعلتك تكرهني.. كل هذا لأنني لم أرغب في توريطك.. أتمنى لو كنت أملك الشجاعة منذ البداية.. لكي أنظر في عينيك وأخبرك بالحقيقة.. لو فعلت ذلك.. لما اضطررت للوقوف أمامك اليوم كشخص فاشل.. في النهاية.. أريدك فقط أن تعلم شيئاً مهماً.. أنت لست مضطراً لمسامحتي.. ومهما فعلت من الآن فصاعداً.. اعلم أنني سأبقى أحبك على الدوام.`],
+["غارا",`وكما ترون، فشلت في هدفي الوحيد الذي من أجله منحت الحياة. فلماذا سأبقى في هذا الوجود؟ ولماذا سأستمر في البقاء حياً؟ لم أجد إجابة على ذلك لفترة طويلة. ولكن! لكي تعيش فأنت بحاجة إلى هدف. إن الوجود بلا هدف هو كالموت!`],
+["مادارا",`تلك النظرة.. أهذا عرق؟ كلا، إنه مجرد مطر. ما كان لهؤلاء الحمقى أن يدفعوني للتعرق. ما كان ناروتو إلا هدفاً لاختبار ساسكي، ويفترض به أن يكون مجرد لعبة لإمتاعي.`],
+["إيتاتشي أوتشيها",`سأقوم بإيقاف تقنية الإحياء الآن، وجميع الموتى الذين تم إحياؤهم سيتلاشون. ينبغي لهذا أن ينهي الحرب.. ولكن، أنت أيضاً سترحل. سأكون قد حميت قريتي بصفتي إيتاتشي أوتشيها من قرية الورق، ولم يعد هناك ما أتحسر عليه.`],
+["مادارا",`عليك تقبل الحقيقة.. لا شيء يسير في هذا العالم كما هو مخطط له.. كلما عشت أكثر أدركت أن هذا العالم عالم فائن وليس له قيمة، حيث لا يوجد فيه سوى الألم والمعاناة والخيبة.. بما أننا نعيش في عالم فيه الضوء والنور، سيكون هناك وجود للظلال دائماً.. ما دام مفهوم المنتصر موجوداً، سيظل المقهور والمهزوم موجوداً أيضاً.`],
+["مونكي دي لوفي",`لوفي: ومن أنتِ أيتها الفتاة؟
+نامي: اسمي نامي، أسترد ما يسرقه القراصنة.. هل تنضم إلي؟ فأنت قوي جداً!
+لوفي: لا أريد، فأنا أُفضل أن أعمل وحدي.
+لوفي: هل تنضمين إلى الفريق الذي ننوي تشكيله أنا وزورو؟
+نامي: حقاً ما تقول؟!
+لوفي: نعم، سنكون فريق قراصنة رائع!
+نامي: هل أنت قرصان أيضاً؟
+لوفي: نعم! نعم، أنا كذلك.. لقد وعدت صاحب هذه القبعة أن أجمع فريق قراصنة وأصير زعيمهم!`],
+["مجهول",`كم يبدو هذا العالم تعيساً
+لكن يمكنني أن أرى..
+مستقبلاً مشرقاً لهذا العالم
+دون تدخل تلك الحشرات التي تسمى بشراً
+فقط القليل ومن ثم يتحقق هدفي
+أيها البشر
+انتظروا وقت عقابكم`],
+["عهد الأصدقاء",`هل تعرف ماذا كانت تقول لي أختي بيانكا يا روميو؟
+ماذا؟
+كانت تقول..
+لن تعيش هذا اليوم ثانيةً
+لا تدعه يمر بحزن
+كن سعيداً وستغير كل شيء حولك
+كن سعيداً وستغير كل شيء حولك؟`],
+["أوبيتو أوتشيها",`إذاً لا أمانع باستخدام اسمي السابق "توبي"
+فالآن بعد أن بدأت الحرب لم تعد الأسماء مهمة
+"مادارا"
+"توبي"
+نادوني بما تشاؤون
+ومن تكون بالضبط بحق السماء؟
+أنا لا أحد!
+ولا أريد أن أكون أحداً
+كل ما أريده هو نجاح مشروع عين القمر
+البقاء في هذا العالم الذي لا يعرف غير اليأس.. بلا قيمة!`],
+["أوبيتو أوتشيها",`رغم أنك كنت معلمي
+إلى أنك لم تتعرف علي
+لكنها طبيعة شخصيتك
+من الأساس
+كم هذا بائس
+مثلك هو كاغي بطل!
+لكنّك الآن ذليل أمام ابنك
+هذا صحيح!
+"الهوكاغي"
+هو منصب بائس مقارنة بما وصلت إليه!`],
+["العم فيتالس",`كلنا سنموت
+لا أحداً سينجو
+لكن الموت لا يعني أننا سنفترق
+روسينا...
+لقد أحببتها أكثر من نفسي
+وبعد أن مرضت وماتت
+ظننت أنني سأفارقها إلى الأبد
+لكنها.. ما تزال حية
+في قلبي يا ريمي
+وأنا أيضاً سأحيى في قلبك بعد أن أموت
+إياك أن تضعفي يا ريمي
+فهذه الحياة صعبة جداً
+ولكننا.. يجب أن نؤدي رسالتنا`],
+["أوبيتو أوتشيها",`الشيء الوحيد الذي ينتظرك
+هو أسوأ كوابيسك الشخصية
+والذي تعرفه جيداً
+العزلة!
+لماذا تتابع العيش مع هذه الحقيقة؟
+هيا انضم إلينا حالا ناروتو`],
+["جيرايا",`اسمعني جيداً
+هناك جزء مهم يجب أن تفهمه
+قلت لك بأنني سأكون معلمك
+وليس والدك أو صديقك
+عليك أن تفعل هذا بنفسك أو لن تفعله
+توقف عن كونك طفلاً صغيراً
+وتعلم الوقوف كالشينوبي`],
+["إيتاتشي أوتشيها",`لماذا أنت متعلق بأخي هكذا؟
+إنه مجرد نينجا هارب
+إن سبب تعبغي الشديد بساسكي
+أنني أعتبره أخاً أكثر مما تعتبره أنت
+قلت إنك تعتبر ساسكي أخاً لك
+لذلك شعرت أنك أنت ناروتو
+الشخص الوحيد القادر على إيقافه
+إيتاشي..
+شكراً على ثقتك بي
+ولا داعي لتقلق بعد الآن
+لقد فعلت أكثر مما يلزم لحماية قرية الورق
+لذلك دعني أتولى الباقي عنك
+إن أخي الصغير..
+محظوظ بوجود صديق مثلك
+"ناروتو أوزوماكي"`],
+["إيتاتشي أوتشيها",`ربما تكرهني..
+ولكن نحن إخوان..
+وليس لنا غير بعضنا
+سأتواجد دائماً من أجلك
+وحتى لو أصبحت تكرهني
+فهذا واجب الأخ الكبير`],
+["زورو",`في كل مرة أنظر فيها إلى الماضي
+أتيقن أنني كنت محارباً قوياً
+إنتصرت على نفسي كثيراً
+في أمور كنت أظن أن بنهايتها ينتهي الكون
+ولكن..
+ها أنا هنا، أبدأُ من جديد كل يوم!`],
+["العم فيتالس",`الحب يبدأ عندما ينتهي الحماس
+لهفة البدايات ليست حب
+فالإنسان لا يحب في أسبوع أو شهر
+لا يمكنك أن تقول إنك تحب البحر وأنت تقف على الشاطئ
+لهذا يجب أن تخوض في أعماقه
+وتضربك أمواجه
+تشرب من مياهه المالحة
+تجرح قدمك بصخرة
+فتلمس عيوبه
+وترى ظلماته
+وتعرف كيف يغضب
+وبعدها فقط إما أن تحبه كله.. أو تكرهه كله`],
+["زورو وميهوك",`لم أرى سيفاً يستطيع فعل ما فعله سيفك أبداً
+لا يستطيع أي سيف فعل أي شيء وحده
+وهل قطعت هذه السفينة بهذا السيف أيضاً؟
+بالتأكيد!
+كما توقعت!
+أنت الأقوى
+لقد جبت البحار كلها بحثاً عنك
+وما هدفك؟
+أن أهزمك!
+أحمق!!
+إنني أدعوك إلى النزال يا ميهوك!`],
+["ناروتو",`لا يهمني أبداً إن كان شيطاناً أو مجنوناً
+فبداخلي شيطان حقيقي
+شيطان ماذا بداخلك؟
+منذ أن ولدت وأنا لم أعيش حياة سعيدة
+كما يتمنى كل الناس
+ولكي يتأكد والدي أنني أصبحت أقوى شينوبي
+قام بإلقاء النينجيتسو خاصته علي
+وغرس روح الرمل في نفسي التي لم تولد بعد
+ودمرت حياة المرأة التي أنجبتني
+ولدت وحشاً بروح رملية`],
+["أكازا",`روحه القتالية مدهشة!
+رغم أنك مثخن بأنواع الجراح
+إلا أنك لم تفقد شيئاً
+من عزمك وثباتك الروحي
+عليك حقاً أن تصبح شيطاناً
+يا كيوجيرو!
+وحينها فلنتقاتل إلى الأبد
+أشعل قلبك..
+تخطى حدودك!
+أنا هاشيرا اللهب!
+"رينغوكو كيوجيرو"`],
+["زورو",`اسمع..
+أنت حصاد نفسك
+حصاد الكتب التي تقرؤها
+وحصاد الصحبة التي تختارها
+وحصاد الصوت الذي تسمعه
+وحصاد الخطوة التي تسير بها
+وحصاد اليوم الذي تعيشه
+وحصاد البيئة التي تشكلها
+أنت الذي تختار مأواك
+فإما أن تكون في القاع
+أو في السماء`],
+["زورو",`في مرحلة من العمر
+ستمر بشيء يسمى
+الوعي بالذات
+لن ترحب عندها
+بمن ينتقص من قدرك
+ولن تتحمل من يستغلك
+ولن تجامل أحداً
+وستبتعد فوراً
+عندما تشعر بالضيق
+أنت من ستدير العلاقات
+وأنت من سيختار من يستمر
+فما عاد هناك مجال لأشخاص خاطئين
+ولن تسمح بأن يؤذيك أحد بكلمة
+فزمن التحمل.. قد ولّى`],
+["زابوزا وهاكو",`لطالما بقيت بجانبي
+أقل ما أفعله
+هو أن أكون بجانبك في النهاية
+أعرف أنه لا يمكن
+لكن أتمنى أن أذهب حيثما تذهب
+كم أتمنى أن أرافقك`],
+["زورو",`ليس عيباً!
+أن تلبس ملابس تحبها أكثر من مرة
+وليس عيباً!
+أن تعود إلى البيت
+لأن عائلتك ورغم كبر سنك تخاف عليك
+وليس عيباً!
+أن تعمل أي عمل في سبيل
+أن تكون سنداً لعائلتك ولنفسك
+وليس عيباً!
+أن تكون أنت كما أنت
+بل العيب..
+النظرة التي تقيم الإنسان
+بمظهره وممتلكاته
+لا بقيمه وأخلاقه!`],
+["العم فيتالس",`الأشياء التي تأتي من طرف واحد
+دائماً ما تكون مؤلمة
+مثل كونك تنتظر والآخر نائم
+تقلق والآخر يضحك
+تكتب والآخر لا يقرأ
+وتتعب والآخر لا يبالي`],
+["ساسكي",`أنا أفهم الآن "ناروتو"
+لا بد أنك كنت وحيداً
+وعانيت الكثير من الألم
+سامحني ناروتو
+لو كنت جديراً بثقتي أكثر
+لما اضطررت لتحمل هذا
+لقد عرفت، أنك كنت وحيداً دائماً
+وحين راقبتك
+شعرت بالاطمئنان لأنني لم أكن الوحيد
+كنا لا نزال مجرد طفلين
+وأذكر وقتها..
+أنني حملت قدر "الكيوبي"
+وأنت قدر "الأوتشيها"`],
+["أوروتشيمارو",`لا مغزى من النحيب والحزن..
+على الذين فقدوا حياتهم.
+إن كان هناك أي معنى وراء الموت
+فيجب علينا الاستفادة منه.
+إذاً وما المعنى من الحياة؟!
+لا يوجد معنى
+سيكون هناك معنى للحياة
+فقط إن كانت خالدة.`],
+["العم فيتالس",`لا تتعلق بأحد كثيراً
+فمهما كانت علاقتك به قويه
+قد يأتي يوم، ويجد بديلاً عنك
+ويقل السؤال والاهتمام بك.
+وعند سؤالك له،
+إما أن يعتذر لك بالظروف..
+أو يذكرك بذلاتك ويضع اللوم عليك
+وربما لا يهتم
+لذا عش على مبدأ: وجودهم لطيف
+وغيابهم لا يضر!`],
+["ناروتو",`اسمع ساسكي
+انت تذكر صحيح؟
+فقط كانت القريه، تكرهني بكل من فيها
+والسبب هو..
+ان كيوبي ذا الذيل التسعة بداخلي
+وانا أيضاً كرهت القريه..
+حتى انني فكرت بالإنتقام من الجميع
+
+* انظري، انظري إلى ذلك الطفل!
+لماذا يدعو طفلاً مثله يبقى في القريه
+آمل ان يراعي السيد الهوكاجي مشاعرنا
+اصتوا!!
+والآن أيضاً..
+لماذا اخبرني!!
+لماذا الجميع وحتى انت؟
+انت يامعلمي..
+لماذا جميعكم تنظرون الي بهذه نظره.
+انا لست مصدر ازعاج ولست حجرها!
+انا انسان
+انا اسمي ناروتو اوزوماكي!`],
+["زورو",`ابقى بعيداً عن الناس الذين
+يحاولون أن يستهينوا بطموحاتك
+فالصغار يفعلون ذلك دائماً
+لكن العظيم فعلاً
+يجعلك تشعر أنك أيضاً
+يمكن أن تصبح عظيماً`],
+["زورو",`أكثر شيء يجعلني فخور بنفسي..
+أنني لم أبني علاقتي مع الآخرين على أساس المصالح
+ولم أستغل أحد
+ولهذا السبب أغلب الوقت تجدني لوحدي
+لأنني لا أعرف المجاملة
+وإذا أحببت، أحببت بصدق
+وإذا أعطيت
+أعطي ولا أنتظر الرد من أحد
+وإذا صادقت شخصاً كنت له كل شيء
+وإذا أخطأت، أعتذر
+هذا هو أنا!`],
+["سانجي",`لا تثقوا كثيراً
+ولا تحبوا كثيراً
+ولا تتأملوا كثيراً
+لأن كثيراً
+ستؤلمكم كثيراً
+غرباء
+ثم أصدقاء
+ثم أحاديث طويلة
+ثم أحبة
+ثم أحاديث قليلة
+ثم عادوا غرباء!`],
+["لوفي",`عندما أغضب لا أستطيع أن أنام
+وعندما أحزن
+لا أكف عن التفكير بالسبب الذي أحزنني
+لا يمكنني أن أتحكم في نفسي!`],
+["زورو",`الحياة مستمرة!
+سواء ضحكت أم بكيت
+فلا تحمل نفسك هموماً
+لن تستفيد منها
+وحين تصطدم بالصعاب، ابتسم
+وتذكر أن كل عقبة هي فرصة للنمو
+وكلما تعظمت التحديات في حياتك
+تذكر أن النجوم تشرق في الظلام
+وأن لكل عاصفة نهاية
+تكشف بعدها عن قوس قزح`],
+["مجهول",`يا قلبُ لا تبكي عليها إنها..
+تهوى الفراقَ وبالشاعرِ تلعبُ
+يا قلبُ لا ترضى علينا ذلةً
+إني عزيزٌ شامخٌ لا أُغلب!`],
+["لوفي وسانجي",`لوفي: هي أنت أيها الطباخ!
+لوفي: أنا وفريقي أربعة أشخاص وينقصنا طباخ
+لوفي: ما رأيك أن تنضم إلى فريقنا؟
+سانجي: هل أنتم أربعة فقط؟
+لوفي: نعم!
+سانجي: وكيف تجرأت على مهاجمة مطعمنا وليس معك رجال كثيرون؟
+لوفي: لم نقصد ضربه إلا أن القذيفة سقطت خطأً
+سانجي: بدأ المعلم يبحث عن أشخاص ليسوا قراصنة في الأصل، ليعملوا لديه
+لوفي: اها، الآن فهمت..
+لوفي: ما رأيك بالانضمام إلى فريقي؟
+سانجي: أنا أرفض ذلك`],
+["لوفي",`أنا أيضاً سأذهب إلى الحد الكبير
+روجر الذهبي كان رائعةً
+وعلى القراصنة أن يقتدوا به كما قلت
+لذا خرجت إلى البحر لأتوجه إلى الحد الكبير
+وأجد القطعة النادرة
+سأصير زعيم القراصنة!`],
+["زورو",`لا تحاولوا!
+أساليبكم هذه صارت قديمة جداً
+مررت بكثير من المواقف المحرجة
+واجهت الخطر
+ولكني تغلبت عليه
+فكرة الانسحاب لم تخطر على بالي لحظة
+لا بأس بمزيد من المغامرات!
+ألا تعرفون من أنا؟
+أنا " زورو "
+ألا تزالون مصرين على مواجهتي؟
+هذه الألقاب لا معنى لها في ساحة المعركة
+الفوز للأقوى!`],
+["سانجي ولوفي",`سانجي: أهلاً يا لوفي
+سانجي: متمسك بحلمي حتى لو كان سخيفاً
+سانجي: سأذهب من أجل هدفي وهو العثور على البحر الأزرق الصافي
+لوفي: سانجي!
+سانجي: أجل كما أردت.. سأصحبك بالطريق لتصير زعيم القراصنة`]
+];
 </script>
 
-<!-- (2) سكربت الموقع الرئيسي -->
+<!-- ═════ سكربت الموقع ═════ -->
 <script>
+(function(){
 try{
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const RM=matchMedia('(prefers-reduced-motion:reduce)').matches,sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const LS={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+var d=document,h=d.documentElement;h.classList.add('js');
+var $=function(s,r){return(r||d).querySelector(s)},$$=function(s,r){return[].slice.call((r||d).querySelectorAll(s))};
 
-/* ✎ الإعدادات — عدّل هنا */
-const CFG={
- socials:[
-  {name:'TikTok',url:'https://www.tiktok.com/@4_ad10',tag:'CONTENT CREATOR',b:'مقاطع قصيرة ومونتاج أنمي بإيقاع سريع.',svg:'<path d="M16 3c.3 2.4 1.8 4 4 4.2v3a7 7 0 0 1-4-1.3v6.4a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.4 2.1V3z" fill="currentColor"/>'},
-  {name:'Instagram',url:'https://www.instagram.com/4_ad10',tag:'PERSONAL ACCOUNT',b:'حسابي الشخصي.',svg:'<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>'},
-  {name:'YouTube',url:'https://youtube.com/@4_ad10',tag:'CONTENT CREATOR',b:'الأعمال الكاملة بجودة عالية.',svg:'<rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/>'}],
- /* yt = معرّف فيديو يوتيوب (بعد v=) */
- works:[['عمل 01','AMV'],['عمل 02','ANIME EDIT'],['عمل 03','AMV'],['عمل 04','SHORT'],['عمل 05','ANIME EDIT'],['عمل 06','AMV']].map((w,i)=>({title:w[0],tag:w[1],yt:'',thumb:'',url:i==3?'https://www.tiktok.com/@4_ad10':'https://youtube.com/@4_ad10'})),
- gallery:Array.from({length:9},(_,i)=>({t:'FRAME '+String(i+1).padStart(2,'0'),src:''})),
- polls:[{id:'p1',q:'أي نوع مونتاج تريد في الفيديو القادم؟',o:['AMV درامي','إيقاع سريع / Phonk','مشاهد قتال','مشاهد حزينة']},{id:'p2',q:'أي طابع بصري تفضّله؟',o:['أسود وأحمر','أبيض وأسود','ألوان باردة']}]};
+/* ═════════ ✎ الإعدادات — عدّل هنا فقط ═════════ */
+var ABOUT=[['الاسم','عبدالله'],['الدولة','مجهولة'],['العمر','مجهول'],['الصفة','صانع محتوى وصديق للجميع']];
 
-/* الصوت — يتولد برمجياً ولا يعمل قبل تفاعل المستخدم */
-const A={ctx:null,m:null,nb:null,on:false,vol:.6,dr:null,
- init(){if(this.ctx)return;const C=window.AudioContext||window.webkitAudioContext;if(!C)return;this.ctx=new C();this.m=this.ctx.createGain();this.m.gain.value=0;this.m.connect(this.ctx.destination);const n=this.ctx.sampleRate;this.nb=this.ctx.createBuffer(1,n,n);const d=this.nb.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1},
- set(on){this.on=on;if(on){this.init();this.ctx&&this.ctx.resume()}if(this.m)this.m.gain.setTargetAtTime(on?this.vol:0,this.ctx.currentTime,.06);this.drone(on);document.body.classList.toggle('off',!on)},
- tone(f,ty,d,g,to){if(!this.on||!this.ctx)return;const c=this.ctx,t=c.currentTime,o=c.createOscillator(),e=c.createGain();o.type=ty;o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+d);e.gain.setValueAtTime(0,t);e.gain.linearRampToValueAtTime(g,t+.01);e.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(e).connect(this.m);o.start(t);o.stop(t+d+.05)},
- noise(d,f1,f2,g){if(!this.on||!this.ctx)return;const c=this.ctx,t=c.currentTime,s=c.createBufferSource(),b=c.createBiquadFilter(),e=c.createGain();s.buffer=this.nb;b.type='bandpass';b.Q.value=1.2;b.frequency.setValueAtTime(f1,t);b.frequency.exponentialRampToValueAtTime(f2,t+d);e.gain.setValueAtTime(0,t);e.gain.linearRampToValueAtTime(g,t+d*.4);e.gain.exponentialRampToValueAtTime(.0001,t+d);s.connect(b).connect(e).connect(this.m);s.start(t);s.stop(t+d+.05)},
- boom(){this.tone(70,'sine',2.4,.9,26);this.tone(140,'triangle',1.8,.22,48);this.noise(2,180,2600,.32);this.tone(660,'sine',3,.035,330)},
- click(){this.tone(1300,'square',.07,.035,520)},
- whoosh(){this.noise(.9,280,3600,.28);this.tone(95,'sine',.8,.25,38)},
- tick(){const t=performance.now();if(t-(this._t||0)<350)return;this._t=t;this.tone(2600,'sine',.09,.025)},
- drone(on){if(!this.ctx)return;const c=this.ctx;if(on&&!this.dr){const g=c.createGain(),f=c.createBiquadFilter(),a=c.createOscillator(),b=c.createOscillator();f.type='lowpass';f.frequency.value=180;a.type=b.type='sawtooth';a.frequency.value=55;b.frequency.value=55.5;g.gain.setValueAtTime(0,c.currentTime);g.gain.linearRampToValueAtTime(.05,c.currentTime+3);a.connect(f);b.connect(f);f.connect(g).connect(this.m);a.start();b.start();this.dr={g,a,b}}else if(!on&&this.dr){const{g,a,b}=this.dr;g.gain.setTargetAtTime(0,c.currentTime,.2);a.stop(c.currentTime+1);b.stop(c.currentTime+1);this.dr=null}}};
-$('#sb').onclick=()=>{A.set(!A.on);if(A.on)A.click()};
-$('#sv').oninput=e=>{A.vol=e.target.value/100;if(A.m&&A.on)A.m.gain.setTargetAtTime(A.vol,A.ctx.currentTime,.05)};
-document.addEventListener('visibilitychange',()=>{if(A.ctx){document.hidden?A.ctx.suspend():A.on&&A.ctx.resume()}});
-document.addEventListener('click',e=>{if(e.target.closest('button,a,.work,.gi'))A.click()});
+var SOCIALS=[
+ {n:'تيك توك',u:'https://www.tiktok.com/@4_ad10',b:'مقاطع قصيرة ومونتاج أنمي بإيقاع سريع.',t:'زيارة الحساب',s:'<path d="M16 3c.3 2.4 1.8 4 4 4.2v3a7 7 0 0 1-4-1.3v6.4a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.1a2.3 2.3 0 1 0 1.4 2.1V3z" fill="currentColor"/>'},
+ {n:'إنستغرام',u:'https://www.instagram.com/4_ad10',b:'حسابي الشخصي.',t:'زيارة الحساب',s:'<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/>'},
+ {n:'يوتيوب',u:'https://youtube.com/@4_ad10',b:'الأعمال الكاملة بجودة عالية.',t:'زيارة القناة',s:'<rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/>'}];
 
-/* تقسيم العناوين لحروف + كشف عند التمرير */
-$$('[data-r=split]').forEach(el=>{const t=el.textContent;el.setAttribute('aria-label',t);el.innerHTML=[...t].map((c,i)=>'<span aria-hidden="true" style="--i:'+i+'">'+(c==' '?'&nbsp;':c)+'</span>').join('')});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;setTimeout(()=>e.target.classList.add('in'),30);io.unobserve(e.target);if(e.target.dataset.r==='split')A.tick()}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+/* قسم قريباً: أضف سطراً جديداً بين القوسين وسيظهر تلقائياً.
+   كلمة قصيرة تظهر كوسم، أو {t:'عنوان',p:'وصف',u:'رابط اختياري'} تظهر كبطاقة */
+var SOON_CHIPS=['محتوى الألعاب','قنوات Telegram','تطبيقات التصميم والمونتاج','أدوات ومواقع لصناع المحتوى','مشاريع وتطبيقات جديدة','محتوى يختاره المتابعون'];
+var SOON_CARDS=[];
 
-/* الانتقالات — لكل صفحة أسلوبها */
-const PAGES=['home','about','works','gallery','community','socials'],LABEL={home:'HOME',about:'ABOUT',works:'MY WORKS',gallery:'GALLERY',community:'COMMUNITY',socials:'SOCIALS'};
-const FX={home:'fade',about:'redline',works:'glitch',gallery:'zoom',community:'blinds',socials:'title'};
-const stage=$('#stage'),F={b:$('.fb'),t:$('.ft'),u:$('.fu'),l:$('.fl'),s:$$('.fs i'),ti:$('.fti')};
-const IOe='cubic-bezier(.76,0,.24,1)',OUT='cubic-bezier(.16,1,.3,1)';
-const an=(el,kf,o={})=>el.animate(kf,Object.assign({duration:600,easing:IOe,fill:'forwards'},o)).finished.catch(()=>{});
-const strips=(dir,d,dl,e)=>Promise.all(F.s.map((i,k)=>{i.style.transformOrigin=dir=='in'?'top':'bottom';return an(i,dir=='in'?[{transform:'scaleY(0)'},{transform:'scaleY(1)'}]:[{transform:'scaleY(1)'},{transform:'scaleY(0)'}],{duration:d,delay:dl(k),easing:e||IOe})}));
-const T={
- async fade(sw){await an(F.b,[{opacity:0},{opacity:1}],{duration:480});sw();await sleep(120);an(stage,[{opacity:0,transform:'scale(1.05)'},{opacity:1,transform:'none'}],{duration:900,easing:OUT});await an(F.b,[{opacity:1},{opacity:0}],{duration:800})},
- async redline(sw){F.l.style.opacity=1;await an(F.l,[{transform:'scaleX(0)'},{transform:'scaleX(1)'}],{duration:430});await Promise.all([an(F.t,[{transform:'translateY(-100%)'},{transform:'none'}],{duration:520}),an(F.u,[{transform:'translateY(100%)'},{transform:'none'}],{duration:520})]);sw();await sleep(150);await Promise.all([an(F.t,[{transform:'none'},{transform:'translateY(-100%)'}],{duration:650}),an(F.u,[{transform:'none'},{transform:'translateY(100%)'}],{duration:650}),an(F.l,[{opacity:1},{opacity:0}],{duration:600,delay:200})])},
- async glitch(sw){stage.classList.add('glitch');await strips('in',260,()=>Math.random()*260,'steps(3)');sw();await sleep(140);await strips('out',260,()=>Math.random()*300,'steps(3)')},
- async zoom(sw){await an(stage,[{opacity:1,transform:'none',filter:'blur(0)'},{opacity:0,transform:'perspective(1200px) translateZ(220px) rotateX(5deg)',filter:'blur(10px)'}],{duration:620,easing:'cubic-bezier(.7,0,.84,0)'});sw();await an(stage,[{opacity:0,transform:'perspective(1200px) translateZ(-260px) rotateX(-5deg)',filter:'blur(12px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:950,easing:OUT})},
- async blinds(sw){await strips('in',420,k=>k*55);sw();await sleep(120);await strips('out',420,k=>k*55)},
- async title(sw,p){$('b',F.ti).textContent=LABEL[p];await an(F.b,[{opacity:0},{opacity:1}],{duration:400});await an(F.ti,[{opacity:0,letterSpacing:'.1em'},{opacity:1,letterSpacing:'.5em'}],{duration:700,easing:OUT});sw();await sleep(250);an(F.ti,[{opacity:1},{opacity:0}],{duration:400});await an(F.b,[{opacity:1},{opacity:0}],{duration:700,delay:150})}};
-const resetFx=()=>{[F.b,F.t,F.u,F.l,F.ti,...F.s,stage].forEach(e=>e.getAnimations().forEach(a=>a.cancel()));F.l.style.opacity='';stage.classList.remove('glitch');$('#fx').classList.remove('on')};
-let cur='home',busy=false;
-const mark=()=>$$('.links a,.tabbar a').forEach(a=>a.classList.toggle('on',a.dataset.go===cur));
-async function go(p,o={}){
- if(!PAGES.includes(p)||busy||p===cur)return;busy=true;$('#fx').classList.add('on');
- const sw=()=>{$$('.page.active').forEach(x=>{x.classList.remove('active');$$('[data-r]',x).forEach(e=>e.classList.remove('in'))});const n=$('#'+p);n.classList.add('active');scrollTo(0,0);cur=p;if(!o.pop)history.pushState(null,'','#'+p);document.title='4_AD10 — '+LABEL[p];mark();$$('[data-r]',n).forEach(e=>io.observe(e))};
- try{if(RM)sw();else{A.whoosh();await T[FX[p]](sw,p)}}catch(e){sw()}
- resetFx();busy=false}
-document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t){e.preventDefault();go(t.dataset.go)}});
-addEventListener('popstate',()=>go(location.hash.slice(1)||'home',{pop:true}));
+/* مجتمع الأنمي: أضف عنصراً جديداً بنفس الشكل. النوع: شخصيات / حقائق / ترشيحات / نقاشات / تحديات */
+var COMMUNITY=[
+ {k:'شخصيات',t:'رورونوا زورو',p:'سيّاف يقاتل بثلاثة سيوف، وحلمه أن يصبح أعظم سيّاف في العالم. يُعرف بإصراره وولائه لقائده لوفي.'},
+ {k:'شخصيات',t:'إيتاتشي أوتشيها',p:'من أكثر شخصيات ناروتو تأثيراً. قصته تُظهر أن ما يبدو للناس لا يكون دائماً الحقيقة كاملة.'},
+ {k:'حقائق',t:'ون بيس',p:'مانغا من تأليف إيييتشيرو أودا، بدأ نشرها عام 1997 في مجلة Weekly Shōnen Jump.'},
+ {k:'حقائق',t:'ناروتو',p:'مانغا من تأليف ماساشي كيشيموتو، نُشرت في مجلة Weekly Shōnen Jump من عام 1999 حتى 2014.'},
+ {k:'ترشيحات',t:'Fullmetal Alchemist: Brotherhood',p:'قصة متقنة عن أخوين يبحثان عن الحقيقة والتضحية، ومن الأنميات التي يتفق عليها كثيرون.'},
+ {k:'ترشيحات',t:'Death Note',p:'مواجهة ذكاء مشدودة بين طالب يملك دفتراً غامضاً ومحقق عبقري. مناسب لمحبي التشويق.'},
+ {k:'نقاشات',t:'من أقوى شخصية مرّت عليك؟',p:'شاركنا رأيك بالتعليقات على حساباتنا، ولماذا اخترتها.'},
+ {k:'نقاشات',t:'أفضل نهاية أنمي؟',p:'هل تفضّل النهايات الحزينة أم المفتوحة؟ اكتب لنا رأيك.'},
+ {k:'تحديات',t:'خمّن الأنمي من المقولة',p:'اختر مقولة من قسم المقولات وتحدَّ أصدقاءك أن يخمّنوا الشخصية قبل أن تكشف اسمها.'},
+ {k:'تحديات',t:'ثلاثة أنميات بكلمة واحدة',p:'صِف كل أنمي تحبه بكلمة واحدة فقط، ودع الآخرين يخمّنون أي أنمي تقصد.'}];
+/* ═════════════════════════════════════════════ */
 
-/* بارالاكس + توهج + جزيئات حمراء */
-const layers=$$('[data-depth]'),glow=$('#glow');let mx=0,my=0,tx=0,ty=0,gx=0,gy=0,px=0,py=0;
-addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;px=e.clientX;py=e.clientY},{passive:true});
-addEventListener('scroll',()=>$('#nav').classList.toggle('sc',scrollY>40),{passive:true});
-const cv=$('#cv'),cx=cv.getContext('2d');let W,H;const P=[];
-const rz=()=>{W=cv.width=innerWidth;H=cv.height=innerHeight};rz();addEventListener('resize',rz);
-for(let i=0;i<(innerWidth<700?22:46);i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.6+.4,v:Math.random()*.35+.1,a:Math.random()*.5+.15});
-(function loop(){if(!RM&&!document.hidden){tx+=(mx-tx)*.06;ty+=(my-ty)*.06;gx+=(px-gx)*.1;gy+=(py-gy)*.1;
- if(cur==='home')layers.forEach(l=>{const d=+l.dataset.depth;l.style.transform='translate3d('+(-tx*d*600)+'px,'+(-ty*d*400-scrollY*d*1.4)+'px,0)'});
- glow.style.transform='translate('+gx+'px,'+gy+'px)';cx.clearRect(0,0,W,H);
- P.forEach(p=>{p.y-=p.v;p.x+=Math.sin(p.y/60)*.2;if(p.y<-5){p.y=H+5;p.x=Math.random()*W}cx.fillStyle='rgba(193,39,45,'+p.a+')';cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.28);cx.fill()})}
- requestAnimationFrame(loop)})();
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var pad=function(n){return n<10?'0'+n:''+n};
+var norm=function(s){return String(s).replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').toLowerCase()};
+var toast=function(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show')},1600)};
 
-/* الأعمال */
-CFG.works.forEach((w,i)=>{const a=document.createElement('article');a.className='work';a.dataset.r='up';a.style.setProperty('--d',(i%3)*.08+'s');a.tabIndex=0;
- const bg=w.thumb?'url("'+w.thumb+'")':w.yt?'url("https://i.ytimg.com/vi/'+w.yt+'/hqdefault.jpg")':'none';
- a.innerHTML='<div class="wt" style="background-image:'+bg+'"><b>'+String(i+1).padStart(2,'0')+'</b></div><span class="tag lb2">'+w.tag+'</span><div class="pl"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></div><div class="wi">'+w.title+'</div><i class="wl"></i>';
- a.onclick=()=>openWork(w);a.onkeydown=e=>{if(e.key==='Enter')openWork(w)};$('#wg').append(a)});
-function openWork(w){const m=$('#mm');m.innerHTML='';
- if(w.yt){const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+w.yt+'?autoplay=1&rel=0';f.allow='autoplay;encrypted-media;picture-in-picture;fullscreen';f.allowFullscreen=true;m.append(f)}
- else m.innerHTML='<div class="me">لا يوجد فيديو مضمّن لهذا العمل بعد.<br>افتح الرابط الأصلي لمشاهدته.</div>';
- $('#mg').textContent=w.tag;$('#mt').textContent=w.title;$('#ml').href=w.url;$('#modal').classList.add('open');document.body.classList.add('lock')}
-function closeAll(){$('#modal').classList.remove('open');$('#mm').innerHTML='';$('#lb').classList.remove('open');document.body.classList.remove('lock')}
-$$('[data-close]').forEach(b=>b.onclick=closeAll);
-$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeAll()});$('#lb').addEventListener('click',e=>{if(e.target.id==='lb')closeAll()});
+/* من أنا */
+$('#info').innerHTML=ABOUT.map(function(a,i){return'<div class="it rv" style="--d:'+i*.08+'s"><small>'+esc(a[0])+'</small><p>'+esc(a[1])+'</p></div>'}).join('');
 
-/* المعرض (مرسوم بالكود) */
-const GP=['radial-gradient(90% 90% at 70% 20%,rgba(155,20,27,.5),transparent 65%),linear-gradient(160deg,#151517,#060606)','linear-gradient(115deg,transparent 40%,rgba(155,20,27,.45) 40.2%,rgba(155,20,27,.45) 40.8%,transparent 41%),linear-gradient(200deg,#18181a,#050505)','repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 18px),radial-gradient(70% 70% at 30% 80%,rgba(155,20,27,.45),transparent 70%),#080808','conic-gradient(from 210deg at 70% 30%,rgba(155,20,27,.45),transparent 30%),linear-gradient(#101012,#050505)','radial-gradient(50% 50% at 50% 50%,transparent 38%,rgba(155,20,27,.35) 39%,transparent 40%),radial-gradient(50% 50% at 50% 50%,transparent 58%,rgba(155,20,27,.22) 59%,transparent 60%),#070707','linear-gradient(0deg,rgba(155,20,27,.4),transparent 55%),repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 2px,transparent 2px 6px),#0a0a0b'];
-const gbg=(g,i)=>g.src?'url("'+g.src+'") center/cover,'+GP[i%6]:GP[i%6];
-CFG.gallery.forEach((g,i)=>{const f=document.createElement('figure');f.className='gi s'+(i%7);f.dataset.r='img';f.style.setProperty('--d',(i%4)*.07+'s');f.style.background=gbg(g,i);f.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b><span class="lb2">'+g.t+'</span>';f.onclick=()=>showLB(i,0,1);$('#gg').append(f)});
-let li=0;const lbf=$('#lbf');
-function showLB(i,dir,first){const n=CFG.gallery.length;li=(i+n)%n;
- const set=()=>{const g=CFG.gallery[li];lbf.style.background=gbg(g,li);$('b',lbf).textContent=String(li+1).padStart(2,'0');$('span',lbf).textContent=g.t;$('#lbc').textContent=String(li+1).padStart(2,'0')+' / '+String(n).padStart(2,'0');lbf.style.opacity=1;lbf.style.transform='none'};
- if(first){$('#lb').classList.add('open');document.body.classList.add('lock');lbf.style.opacity=0;lbf.style.transform='scale(.96)';setTimeout(set,30);return}
- lbf.style.opacity=0;lbf.style.transform='translateX('+dir*40+'px) scale(.98)';setTimeout(set,220)}
-$('#lbp').onclick=()=>showLB(li-1,-1);$('#lbn').onclick=()=>showLB(li+1,1);
-addEventListener('keydown',e=>{if(e.key==='Escape')closeAll();if($('#lb').classList.contains('open')){if(e.key==='ArrowLeft')showLB(li-1,-1);if(e.key==='ArrowRight')showLB(li+1,1)}});
-let sx=0;$('#lb').addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
-$('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)showLB(li+(d<0?1:-1),d<0?1:-1)});
+/* حساباتي */
+$('#sg').innerHTML=SOCIALS.map(function(s,i){return'<a class="soc rv" style="--d:'+i*.1+'s" href="'+esc(s.u)+'" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true">'+s.s+'</svg><h3>'+esc(s.n)+'</h3><div class="id">@4_ad10</div><p>'+esc(s.b)+'</p><div class="go"><span>'+esc(s.t)+'</span><span>↗</span></div></a>'}).join('');
 
-/* المجتمع (محفوظ على الجهاز) */
-function rs(){const L=$('#sl'),a=LS.get('ad10s',[]),v=LS.get('ad10v',[]);a.sort((x,y)=>y.v-x.v);$('#sc').textContent=a.length;L.innerHTML='';
- if(!a.length){L.innerHTML='<li class="em">لا توجد اقتراحات بعد — كن أول من يقترح.</li>';return}
- a.forEach(s=>{const li=document.createElement('li'),d=document.createElement('div'),h=document.createElement('b'),sm=document.createElement('small'),b=document.createElement('button');h.textContent=s.c;sm.textContent=s.a+(s.w?' — '+s.w:'');d.append(h,sm);b.className='up'+(v.includes(s.id)?' on':'');b.textContent='▲ '+s.v;
-  b.onclick=()=>{const vs=LS.get('ad10v',[]),as=LS.get('ad10s',[]),it=as.find(z=>z.id===s.id);if(!it)return;if(vs.includes(s.id)){it.v--;vs.splice(vs.indexOf(s.id),1)}else{it.v++;vs.push(s.id)}LS.set('ad10s',as);LS.set('ad10v',vs);rs()};li.append(d,b);L.append(li)})}
-$('#sf').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),c=(f.get('c')||'').trim(),a=(f.get('a')||'').trim();if(!c||!a)return;const l=LS.get('ad10s',[]);l.push({id:Date.now()+'',c,a,w:(f.get('w')||'').trim(),v:0});LS.set('ad10s',l);e.target.reset();rs();A.tick()};
-function rp(){const box=$('#polls'),st=LS.get('ad10p',{}),my=LS.get('ad10m',{});box.innerHTML='';
- CFG.polls.forEach(p=>{const c=st[p.id]||p.o.map(()=>0),tot=c.reduce((x,y)=>x+y,0),voted=my[p.id]!==undefined;const card=document.createElement('article');card.className='card poll';const h=document.createElement('h4');h.textContent=p.q;card.append(h);
-  p.o.forEach((o,i)=>{const b=document.createElement('button'),pc=tot?Math.round(c[i]/tot*100):0;b.className='opt'+(my[p.id]===i?' on':'');b.innerHTML='<i></i><span></span><em></em>';b.children[0].style.width=(voted?pc:0)+'%';b.children[1].textContent=o;b.children[2].textContent=voted?pc+'%':'';
-   b.onclick=()=>{if(voted)return;const s=LS.get('ad10p',{});s[p.id]=s[p.id]||p.o.map(()=>0);s[p.id][i]++;const m=LS.get('ad10m',{});m[p.id]=i;LS.set('ad10p',s);LS.set('ad10m',m);rp()};card.append(b)});box.append(card)})}
-rs();rp();
+/* قريباً */
+$('#chips').innerHTML=SOON_CHIPS.map(function(c){return'<span class="chip">'+esc(c)+'</span>'}).join('');
+$('#soonList').innerHTML=SOON_CARDS.map(function(c){var i='<small>قريباً</small><h3>'+esc(c.t)+'</h3><p>'+esc(c.p||'')+'</p>';return c.u?'<a class="cd" href="'+esc(c.u)+'" target="_blank" rel="noopener noreferrer">'+i+'</a>':'<div class="cd">'+i+'</div>'}).join('');
 
-/* السوشيال */
-CFG.socials.forEach((s,i)=>{const a=document.createElement('a');a.className='soc';a.href=s.url;a.target='_blank';a.rel='noopener noreferrer';a.dataset.r='up';a.style.setProperty('--d',i*.1+'s');
- a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true">'+s.svg+'</svg><h3>'+s.name+'</h3><div class="hd lb2">@4_ad10</div><p>'+s.b+'</p><div class="go lb2"><span>'+s.tag+'</span><span>↗</span></div>';$('#sg').append(a)});
-$('#yr').textContent=new Date().getFullYear();
+/* مجتمع الأنمي */
+var kinds=['الكل'].concat(COMMUNITY.map(function(c){return c.k}).filter(function(v,i,a){return a.indexOf(v)===i}));
+function drawCm(k){
+ $('#tabs').innerHTML=kinds.map(function(x){return'<button class="'+(x===k?'on':'')+'" data-k="'+esc(x)+'">'+esc(x)+'</button>'}).join('');
+ $('#cm').innerHTML=COMMUNITY.filter(function(c){return k==='الكل'||c.k===k}).map(function(c,i){return'<div class="cd rv in"><small>'+esc(c.k)+'</small><h3>'+esc(c.t)+'</h3><p>'+esc(c.p)+'</p></div>'}).join('')}
+$('#tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)drawCm(b.dataset.k)});
+drawCm('الكل');
 
-/* الدخول */
-window.ENTER=async function(snd){const l=$('#loader');if(!l)return;if(snd){A.set(true);A.boom()}l.classList.add('out');await sleep(900);l.remove();document.body.classList.remove('lock');
- const h=location.hash.slice(1);if(PAGES.includes(h)&&h!=='home'){cur='home';go(h,{pop:true})}else{mark();$$('#home [data-r]').forEach(e=>io.observe(e))}};
-mark();
-}catch(err){
- console.error(err);
- document.querySelectorAll('[data-r]').forEach(function(x){x.classList.add('in')});
+/* ═════ المقولات ═════ */
+var Q=window.QUOTES||[],qi=0,N=Q.length,cur='home';
+function fmt(t){return t.split('\n').map(function(l){l=l.trim();if(!l)return'';var m=l.match(/^([^:：]{1,22}):\s*(.*)$/);return m?'<span class="ln"><b>'+esc(m[1])+':</b> '+esc(m[2])+'</span>':'<span class="ln">'+esc(l)+'</span>'}).join('')}
+function card(i,res){var q=Q[i];return'<article class="qc'+(res?'':' anim')+'"><span class="qn">'+pad(i+1)+'</span><h3>'+esc(q[0])+'</h3><div class="qt">'+fmt(q[1])+'</div><div class="acts"><button class="btn sm" data-copy="'+i+'">نسخ COPY</button>'+(res?'<button class="btn sm ghost" data-open="'+i+'">فتح</button>':'')+'</div></article>'}
+var strip=$('#strip');
+if(!N){$('#qcard').innerHTML='<div class="none">لا توجد مقولات حالياً.</div>'}
+else{
+ strip.innerHTML=Q.map(function(_,i){return'<button data-i="'+i+'" aria-label="مقولة '+(i+1)+'">'+pad(i+1)+'</button>'}).join('');
+ $('#qj').max=N;$('#qj').placeholder='1-'+N;
 }
+function show(i,noScroll){
+ if(!N)return;qi=Math.max(0,Math.min(N-1,i));
+ $('#qcard').innerHTML=card(qi,false);
+ $('#qPrev').disabled=$('#qFirst').disabled=qi===0;$('#qNext').disabled=$('#qLast').disabled=qi===N-1;
+ var on=$('button.on',strip);if(on)on.classList.remove('on');
+ var b=strip.children[qi];if(b){b.classList.add('on');strip.scrollTo({left:b.offsetLeft-strip.clientWidth/2+b.clientWidth/2,behavior:noScroll?'auto':'smooth'})}}
+$('#qPrev').onclick=function(){show(qi-1)};$('#qNext').onclick=function(){show(qi+1)};
+$('#qFirst').onclick=function(){show(0)};$('#qLast').onclick=function(){show(N-1)};
+function jump(){var v=parseInt($('#qj').value,10);if(!v||v<1||v>N){toast('اكتب رقماً من 1 إلى '+N);return}show(v-1)}
+$('#qGo').onclick=jump;$('#qj').addEventListener('keydown',function(e){if(e.key==='Enter')jump()});
+strip.addEventListener('click',function(e){var b=e.target.closest('button');if(b&&!strip._moved)show(+b.dataset.i)});
+/* سحب الشريط بالماوس */
+var dn=false,sx=0,sl=0;
+strip.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;dn=true;strip._moved=false;sx=e.clientX;sl=strip.scrollLeft;strip.classList.add('drag')});
+addEventListener('pointermove',function(e){if(!dn)return;var dx=e.clientX-sx;if(Math.abs(dx)>4)strip._moved=true;strip.scrollLeft=sl-dx});
+addEventListener('pointerup',function(){if(!dn)return;dn=false;strip.classList.remove('drag');setTimeout(function(){strip._moved=false},0)});
+/* نسخ */
+function copy(i){var q=Q[i],txt=q[0]+'\n'+q[1];
+ function ok(){toast('تم النسخ ✓')}
+ function fb(){var t=d.createElement('textarea');t.value=txt;t.style.cssText='position:fixed;opacity:0';d.body.appendChild(t);t.select();try{d.execCommand('copy');ok()}catch(e){toast('تعذّر النسخ')}t.remove()}
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(txt).then(ok,fb);else fb()}
+$('#quotes').addEventListener('click',function(e){var c=e.target.closest('[data-copy]'),o=e.target.closest('[data-open]');if(c)copy(+c.dataset.copy);if(o){$('#qs').value='';search('');show(+o.dataset.open,1);scrollTo({top:0,behavior:'smooth'})}});
+/* بحث */
+function search(v){var q=norm(v.trim()),res=$('#qres'),view=$('#qview');
+ if(!q){res.hidden=true;view.hidden=false;return}
+ var r=[];Q.forEach(function(x,i){if(norm(x[0]).indexOf(q)>-1||norm(x[1]).indexOf(q)>-1)r.push(i)});
+ view.hidden=true;res.hidden=false;
+ res.innerHTML='<p class="cnt">'+(r.length?'عدد النتائج: '+r.length:'')+'</p>'+(r.length?'<div class="res">'+r.map(function(i){return card(i,true)}).join('')+'</div>':'<div class="none">لا توجد نتائج لـ «'+esc(v.trim())+'»</div>')}
+$('#qs').addEventListener('input',function(e){search(e.target.value)});
+addEventListener('keydown',function(e){if(cur!=='quotes'||!N||/INPUT|TEXTAREA/.test((e.target.tagName||'')))return;if(e.key==='ArrowRight')show(qi-1);if(e.key==='ArrowLeft')show(qi+1)});
+show(0,1);
+
+/* ═════ التنقل والظهور ═════ */
+var PG=['home','about','quotes','soon','community','socials'],LB={home:'الرئيسية',about:'من أنا',quotes:'مقولات الأنمي',soon:'قريباً',community:'مجتمع الأنمي',socials:'حساباتي'},busy=false;
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1}):null;
+function watch(root){$$('.rv',root).forEach(function(e){e.classList.remove('in');if(io)io.observe(e);else e.classList.add('in')})}
+function mark(){$$('.links a,.tabbar a').forEach(function(a){a.classList.toggle('on',a.dataset.go===cur)})}
+function go(p,pop){
+ if(PG.indexOf(p)<0||busy||p===cur)return;busy=true;
+ var o=$('.page.active');o.classList.add('out');
+ setTimeout(function(){o.classList.remove('active','out');var n=$('#'+p);n.classList.add('active');scrollTo(0,0);cur=p;
+  if(!pop)history.pushState(null,'','#'+p);d.title='4_AD10 — '+LB[p];mark();watch(n);busy=false},200)}
+d.addEventListener('click',function(e){var t=e.target.closest('[data-go]');if(t){e.preventDefault();go(t.dataset.go)}});
+addEventListener('popstate',function(){go(location.hash.slice(1)||'home',1)});
+var nav=$('#nav');function sc(){nav.classList.toggle('sc',scrollY>30)}addEventListener('scroll',sc,{passive:true});sc();
+$('#yr').textContent=new Date().getFullYear();
+var hs=location.hash.slice(1);if(PG.indexOf(hs)>0){$('.page.active').classList.remove('active');$('#'+hs).classList.add('active');cur=hs;d.title='4_AD10 — '+LB[hs]}
+mark();watch($('.page.active'));
+setTimeout(function(){$$('.page.active .rv').forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in')})},1200);
+}catch(err){console.error(err);document.documentElement.classList.remove('js')}
+})();
 </script>
 </body>
 </html>
