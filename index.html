@@ -935,7 +935,7 @@ function qCard(q){
  var ls=q.t.split('\n');
  if(isDlg(ls)){ls.forEach(function(l){var x=SP.exec(l),d=el('span','ln');if(x&&x[1].split(' ').length<=3){d.append(el('span','sp',x[1]+': '),document.createTextNode(x[2]))}else d.textContent=l;t.append(d)})}
  else t.textContent=q.t;
- var f=el('div','qf'),b=el('button','copy','⧉ نسخ'),lab=b.lastChild;
+ var f=el('div','qf'),b=el('button','copy','⧉ نسخ');
  b.setAttribute('aria-label','نسخ الاقتباس رقم '+q.n);
  b.onclick=function(){copyText(q.t).then(function(ok){if(ok){b.classList.add('done');b.textContent='✓ تم النسخ';A.copy();toast('تم نسخ الاقتباس');setTimeout(function(){b.classList.remove('done');b.textContent='⧉ نسخ'},1800)}else toast('تعذّر النسخ، حدّد النص وانسخه يدوياً')})};
  f.append(b);
@@ -971,4 +971,4 @@ var PAGES=['home','works','quotes','accounts','about'],TITLE={home:'الرئيس
 var START={home:'circle(0% at 50% 50%)',works:'inset(0 100% 0 0)',quotes:'inset(100% 0 0 0)',accounts:'inset(0 0 0 100%)',about:'inset(0 0 100% 0)'};
 var cur=null,busy=false,fx=$('#fx'),fi=$('#fx i');
 function swap(p){$$('.page.active').forEach(function(x){x.classList.remove('active')});var n=$('#'+p);n.classList.add('active');scrollTo(0,0);cur=p;document.title='4_AD10 — '+TITLE[p];
- $$('#nav a').forEach(functio
+ $$('#nav a').forEach(function(a){a.classList
