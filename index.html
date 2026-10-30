@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>4_AD10</title>
+<meta name="description" content="4_AD10 — موقع سينمائي لصانع محتوى أنمي ومونتير.">
+<meta name="theme-color" content="#050505">
+<meta property="og:title" content="4_AD10">
+<meta property="og:description" content="Anime edits. Cinematic worlds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Orbitron:wght@500;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<noscript><style>#loader{display:none}.page#home{display:block}[data-reveal]{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="is-loading">
+
+<!-- ============ LOADER + GATE ============ -->
+<div id="loader" role="dialog" aria-label="Loading">
+  <div class="ld-bars"><i></i><i></i></div>
+  <div class="ld-center" dir="ltr">
+    <div class="ld-logo">4_AD10</div>
+    <div class="ld-track"><span id="ld-fill"></span></div>
+    <div class="ld-num"><span id="ld-num">0</span>%</div>
+    <div class="ld-gate" id="ld-gate" hidden>
+      <p class="royal-name sm" aria-label="Abdullah">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
+      <button class="btn btn-solid" id="enter-sound" data-nosound>ENTER <small>مع الصوت</small></button>
+      <button class="link-quiet" id="enter-silent" data-nosound>دخول صامت</button>
+    </div>
+  </div>
+</div>
+
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-vignette" aria-hidden="true"></div>
+<div class="fx-glow" id="cursor-glow" aria-hidden="true"></div>
+<div class="letterbox" aria-hidden="true"><i></i><i></i></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" dir="ltr">
+  <a class="nav-logo" href="#home" data-go="home" aria-label="4_AD10 home"><span class="logo-mark">♚</span>4_AD10</a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#home" data-go="home"><b>01</b>HOME</a>
+    <a href="#about" data-go="about"><b>02</b>ABOUT</a>
+    <a href="#works" data-go="works"><b>03</b>MY WORKS</a>
+    <a href="#gallery" data-go="gallery"><b>04</b>GALLERY</a>
+    <a href="#community" data-go="community"><b>05</b>COMMUNITY</a>
+    <a href="#socials" data-go="socials"><b>06</b>SOCIALS</a>
+    <span class="nav-line" id="nav-line"></span>
+  </nav>
+  <div class="snd" id="snd">
+    <button class="snd-btn" id="snd-toggle" aria-label="تشغيل/إيقاف الصوت" aria-pressed="false" data-nosound>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="snd-w" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/><path class="snd-x" d="M17 9l5 6M22 9l-5 6"/></svg>
+    </button>
+    <input id="snd-vol" type="range" min="0" max="100" value="60" aria-label="مستوى الصوت">
+  </div>
+</header>
+
+<nav class="tabbar" dir="ltr" aria-label="Mobile">
+  <a href="#home" data-go="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>HOME</span></a>
+  <a href="#about" data-go="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4-6.5 8-6.5s7 2 8 6.5"/></svg><span>ABOUT</span></a>
+  <a href="#works" data-go="works"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5v5l4.5-2.5z"/></svg><span>WORKS</span></a>
+  <a href="#gallery" data-go="gallery"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg><span>GALLERY</span></a>
+  <a href="#community" data-go="community"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.2"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c.6-3.6 3-5.4 6-5.4s5.4 1.8 6 5.4M16 14.8c2.6-.2 4.5 1.3 5 4.7"/></svg><span>FANS</span></a>
+  <a href="#socials" data-go="socials"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span>SOCIALS</span></a>
+  <i class="tab-line" id="tab-line"></i>
+</nav>
+
+<main id="stage">
+
+<!-- ================= 01 HOME ================= -->
+<section class="page active" id="home" data-title="HOME">
+  <div class="hero" dir="ltr">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="layer" data-depth="0.02"><div class="hero-haze"></div></div>
+      <div class="layer" data-depth="0.05"><div class="hero-giant">4_AD10</div></div>
+      <div class="layer" data-depth="0.03"><div class="hero-grid"></div></div>
+      <span class="hline h1"></span><span class="hline h2"></span><span class="vline v1"></span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow" data-reveal="up">— ANIME · EDITS · CINEMA</p>
+      <h1 class="hero-title" data-reveal="title" aria-label="4_AD10"><span class="mask"><span>4_AD10</span></span></h1>
+      <p class="royal-name" data-reveal="up" style="--d:.5s">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
+      <p class="hero-welcome" data-reveal="up" style="--d:.7s">Welcome to the shadows.<br>Every frame tells a story.</p>
+      <div class="hero-cta" data-reveal="up" style="--d:.9s">
+        <button class="btn btn-solid" data-go="about"><span>ENTER THE WORLD</span><i class="arr">→</i></button>
+        <button class="btn btn-ghost" data-go="works"><span>VIEW WORKS</span></button>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="layer" data-depth="0.045">
+        <div class="art-frame">
+          <img class="char" data-char src="assets/character.png" alt="شخصية 4_AD10" decoding="async" fetchpriority="high">
+          <div class="char-ph" hidden><span>♚</span><small>ضع صورة الشخصية هنا<br><code>assets/character.png</code></small></div>
+        </div>
+      </div>
+      <div class="art-ring" aria-hidden="true"></div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true"><i></i>SCROLL</div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div><span>4_AD10 ✦ ANIME EDITS ✦ CINEMATIC ✦ AMV ✦ STORYTELLING ✦ </span><span>4_AD10 ✦ ANIME EDITS ✦ CINEMATIC ✦ AMV ✦ STORYTELLING ✦ </span></div></div>
+
+  <div class="wrap chapters" dir="ltr">
+    <h2 class="sec-title" data-reveal="text">CHAPTERS</h2>
+    <div class="chap-grid">
+      <a class="chap" href="#about" data-go="about" data-reveal="up"><b>02</b><h3>ABOUT</h3><p>من أنا</p><i>→</i></a>
+      <a class="chap" href="#works" data-go="works" data-reveal="up" style="--d:.08s"><b>03</b><h3>MY WORKS</h3><p>أعمالي</p><i>→</i></a>
+      <a class="chap" href="#gallery" data-go="gallery" data-reveal="up" style="--d:.16s"><b>04</b><h3>GALLERY</h3><p>معرض الصور</p><i>→</i></a>
+      <a class="chap" href="#community" data-go="community" data-reveal="up" style="--d:.24s"><b>05</b><h3>COMMUNITY</h3><p>المجتمع</p><i>→</i></a>
+      <a class="chap" href="#socials" data-go="socials" data-reveal="up" style="--d:.32s"><b>06</b><h3>SOCIALS</h3><p>حساباتي</p><i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 ABOUT ================= -->
+<section class="page" id="about" data-title="ABOUT">
+  <div class="wrap about">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">02 — ABOUT</p>
+      <h2 class="sec-title" data-reveal="text">WHO AM I</h2>
+      <span class="rule" data-reveal="line"></span>
+    </header>
+
+    <div class="about-grid">
+      <figure class="portrait" data-reveal="img">
+        <img data-char src="assets/character.png" alt="شخصية 4_AD10" loading="lazy" decoding="async">
+        <div class="char-ph" hidden><span>♚</span></div>
+        <figcaption>4_AD10</figcaption>
+      </figure>
+
+      <div class="about-copy">
+        <p class="royal-name" data-reveal="up">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
+        <h3 class="about-hello" data-reveal="up" style="--d:.1s">أنا <em>عبدالله</em> — خلف هوية <span dir="ltr">4_AD10</span></h3>
+        <p data-reveal="up" style="--d:.2s">صانع محتوى ومونتير، أبني عوالم أنمي بصرية بإيقاع سينمائي: قصّ دقيق، ألوان داكنة، وموسيقى تحمل المشهد إلى أبعد من حدوده.</p>
+        <p data-reveal="up" style="--d:.3s">كل مقطع أصنعه هو مشهد صغير له مزاجه وقصته. هنا تجد أعمالي وصوري ومجتمع المتابعين، وكل ما يخص هوية 4_AD10.</p>
+        <ul class="skills" dir="ltr">
+          <li data-reveal="up" style="--d:.35s"><b>01</b>AMV EDITING</li>
+          <li data-reveal="up" style="--d:.42s"><b>02</b>ANIME EDITS</li>
+          <li data-reveal="up" style="--d:.49s"><b>03</b>CINEMATIC STORYTELLING</li>
+          <li data-reveal="up" style="--d:.56s"><b>04</b>RHYTHM &amp; SOUND</li>
+        </ul>
+        <button class="btn btn-ghost" data-go="works" data-reveal="up" style="--d:.6s"><span>MY WORKS</span><i class="arr">→</i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 WORKS ================= -->
+<section class="page" id="works" data-title="MY WORKS">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">03 — SELECTED EDITS</p>
+      <h2 class="sec-title" data-reveal="text">MY WORKS</h2>
+      <span class="rule" data-reveal="line"></span>
+      <p class="sec-sub" data-reveal="up">أفضل أعمال المونتاج. اضغط على أي عمل لمشاهدته أو فتح الرابط الأصلي.</p>
+    </header>
+    <div class="works-grid" id="works-grid"></div>
+  </div>
+</section>
+
+<!-- ================= 04 GALLERY ================= -->
+<section class="page" id="gallery" data-title="GALLERY">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">04 — FRAMES</p>
+      <h2 class="sec-title" data-reveal="text">GALLERY</h2>
+      <span class="rule" data-reveal="line"></span>
+      <p class="sec-sub" data-reveal="up">معرض صور أنمي. اضغط على الصورة لتكبيرها.</p>
+    </header>
+    <div class="gal-grid" id="gal-grid"></div>
+  </div>
+</section>
+
+<!-- ================= 05 COMMUNITY ================= -->
+<section class="page" id="community" data-title="COMMUNITY">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">05 — THE CIRCLE</p>
+      <h2 class="sec-title" data-reveal="text">COMMUNITY</h2>
+      <span class="rule" data-reveal="line"></span>
+      <p class="sec-sub" data-reveal="up">مساحة المتابعين: اقترح شخصية للمونتاج القادم وصوّت على القرارات.</p>
+    </header>
+
+    <div class="comm-grid">
+      <article class="card" data-reveal="up">
+        <div class="card-top"><b>01</b><h3>اقترح شخصية</h3></div>
+        <form id="sug-form" autocomplete="off">
+          <label>اسم الشخصية<input name="char" required maxlength="40" placeholder="مثال: Levi Ackerman"></label>
+          <label>اسم الأنمي<input name="anime" required maxlength="40" placeholder="مثال: Attack on Titan"></label>
+          <label>لماذا؟ <small>(اختياري)</small><textarea name="why" rows="2" maxlength="140" placeholder="جملة واحدة"></textarea></label>
+          <button class="btn btn-solid" type="submit"><span>إرسال الاقتراح</span></button>
+        </form>
+        <p class="note">تُحفظ الاقتراحات على هذا الجهاز حالياً.</p>
+      </article>
+
+      <article class="card card-wide" data-reveal="up" style="--d:.1s">
+        <div class="card-top"><b>02</b><h3>لوحة الاقتراحات</h3><span class="count" id="sug-count">0</span></div>
+        <ul class="sug-list" id="sug-list"></ul>
+      </article>
+
+      <div class="polls" id="polls"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 06 SOCIALS ================= -->
+<section class="page" id="socials" data-title="SOCIALS">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">06 — FIND ME</p>
+      <h2 class="sec-title" data-reveal="text">SOCIALS</h2>
+      <span class="rule" data-reveal="line"></span>
+      <p class="sec-sub" data-reveal="up">حساباتي الرسمية.</p>
+    </header>
+    <div class="soc-grid" id="soc-grid"></div>
+    <footer class="foot" dir="ltr">
+      <p class="royal-name sm">♚ 𝒜 𝐵 𝒟 𝒰 𝐿 𝐿 𝒜 𝐻 ♚</p>
+      <p>© <span id="yr"></span> 4_AD10</p>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ TRANSITION LAYER ============ -->
+<div id="fx" aria-hidden="true">
+  <div class="fx-black"></div>
+  <div class="fx-half top"></div><div class="fx-half bot"></div><div class="fx-redline"></div>
+  <div class="fx-slices"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="fx-title" dir="ltr">4_AD10<span></span></div>
+</div>
+
+<!-- ============ MODAL / LIGHTBOX ============ -->
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="Work">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <button class="x" data-close aria-label="إغلاق">✕</button>
+    <div class="modal-media" id="modal-media"></div>
+    <div class="modal-info"><div><small id="modal-tag"></small><h3 id="modal-title"></h3></div><a class="btn btn-ghost" id="modal-link" target="_blank" rel="noopener noreferrer"><span>الرابط الأصلي</span><i class="arr">↗</i></a></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Gallery">
+  <div class="lb-bg" data-close></div>
+  <button class="x" data-close aria-label="إغلاق">✕</button>
+  <button class="lb-nav prev" id="lb-prev" aria-label="السابق">‹</button>
+  <figure class="lb-fig" id="lb-fig"></figure>
+  <button class="lb-nav next" id="lb-next" aria-label="التالي">›</button>
+  <div class="lb-count" id="lb-count" dir="ltr"></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
